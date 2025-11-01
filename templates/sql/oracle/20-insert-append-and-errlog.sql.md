@@ -8,8 +8,8 @@ tested_on: "Oracle 19c"
 tags: [direct-path, error-logging]
 description: "High-throughput insert with DML error logging"
 ---
-
-### Setup once
+###### Oracle PL/SQL
+### Errlog: Setup once
 ```sql
 BEGIN
   DBMS_ERRLOG.CREATE_ERROR_LOG(dml_table_name => 'STAGE_ORDERS_CSV');

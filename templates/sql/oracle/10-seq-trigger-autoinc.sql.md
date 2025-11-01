@@ -8,8 +8,8 @@ tested_on: "Oracle 19c"
 tags: [sequence, trigger, autoincrement]
 description: "Assign nextval only when PK is NULL"
 ---
-
-### Primary snippet
+###### Oracle PL/SQL
+### Sequence / Trigger
 ```sql
 -- Sequence
 CREATE SEQUENCE acct_seq START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;

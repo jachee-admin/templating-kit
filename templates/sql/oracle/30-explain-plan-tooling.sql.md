@@ -8,8 +8,8 @@ tested_on: "Oracle 19c"
 tags: [explain-plan, dbms_xplan]
 description: "Plan table setup and display helpers"
 ---
-
-### Create plan table (once per schema if missing)
+###### Oracle PL/SQL
+### Explain Plan: Create plan table (once per schema if missing)
 ```sql
 @?/rdbms/admin/utlxplan.sql
 ```
