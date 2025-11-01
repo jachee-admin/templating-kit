@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/generic-logging-19c
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.6"
-tested_on: "Oracle 19c"
-tags: [plsql, logging, autonomous_transaction, dbms_utility, dbms_application_info, json, purge]
-description: "Drop-in, schema-local logging: table + indexes, an autonomous logger package with levels (DEBUG/INFO/WARN/ERROR), correlation IDs, context capture (module/action/client_identifier), exception helpers, JSON context, and retention purge."
----
 ###### Oracle PL/SQL
 ### Generic Logging (drop-in, schema-local) — 19c
 Self-contained logging you can paste into any schema. No hardcoded schema names; uses identity PKs, an autonomous transaction for durability, optional JSON context, and a simple purge routine.
@@ -293,3 +283,15 @@ END IF;
 * **JSON context:** optional, validated by `CHECK (ctx_json IS JSON)` for quick, structured breadcrumbs.
 * **Performance:** narrow indexes on access paths; avoid over-indexing CLOBs. For very high volume, consider partitioning by day/week and local indexes.
 
+```yaml
+---
+id: sql/oracle/plsql/generic-logging-19c
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.6"
+tested_on: "Oracle 19c"
+tags: [plsql, logging, autonomous_transaction, dbms_utility, dbms_application_info, json, purge]
+description: "Drop-in, schema-local logging: table + indexes, an autonomous logger package with levels (DEBUG/INFO/WARN/ERROR), correlation IDs, context capture (module/action/client_identifier), exception helpers, JSON context, and retention purge."
+---
+```

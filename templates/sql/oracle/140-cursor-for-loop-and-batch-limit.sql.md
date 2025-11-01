@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/cursor-for-loop-batch
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, cursors, batching]
-description: "Cursor FOR loop in batches; commit safely after chunks"
----
 ###### Oracle PL/SQL
 ### Cursor FOR loop with commit interval
 Maintainable batching without full BULK COLLECT.
@@ -26,4 +16,18 @@ BEGIN
   COMMIT;
 END;
 /
+```
+
+
+```yaml
+---
+id: sql/oracle/plsql/cursor-for-loop-batch
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, cursors, batching]
+description: "Cursor FOR loop in batches; commit safely after chunks"
+---
 ```

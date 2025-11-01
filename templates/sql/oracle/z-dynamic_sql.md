@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/dynamic-sql-19c
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.10"
-tested_on: "Oracle 19c"
-tags: [plsql, dynamic-sql, execute-immediate, dbms_sql, ref-cursor, returning, bulk-collect, binds, dbms_assert]
-description: "Dynamic SQL in 19c: EXECUTE IMMEDIATE (native dynamic SQL) vs DBMS_SQL. Safe patterns for DDL/DML/queries, binds (IN/OUT/IN OUT), RETURNING INTO, BULK COLLECT, REF CURSORs, and robust SQL injection defenses."
----
 ###### Oracle PL/SQL
 ### Dynamic SQL — EXECUTE IMMEDIATE vs DBMS_SQL (Oracle 19c)
 Practical patterns with secure, bind-first code. Use EXECUTE IMMEDIATE for 90% of cases; drop to DBMS_SQL for truly dynamic column counts/shapes.
@@ -231,3 +221,15 @@ END;
 * For performance testing, compare plans with `DBMS_XPLAN.DISPLAY_CURSOR` after running dynamic statements (use `/*+ GATHER_PLAN_STATISTICS */`).
 * Transaction semantics are unaffected: dynamic SQL runs in the caller’s transaction (unless you explicitly use an autonomous block).
 
+```yaml
+---
+id: sql/oracle/plsql/dynamic-sql-19c
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.10"
+tested_on: "Oracle 19c"
+tags: [plsql, dynamic-sql, execute-immediate, dbms_sql, ref-cursor, returning, bulk-collect, binds, dbms_assert]
+description: "Dynamic SQL in 19c: EXECUTE IMMEDIATE (native dynamic SQL) vs DBMS_SQL. Safe patterns for DDL/DML/queries, binds (IN/OUT/IN OUT), RETURNING INTO, BULK COLLECT, REF CURSORs, and robust SQL injection defenses."
+---
+```

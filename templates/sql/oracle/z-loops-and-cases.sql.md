@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/loops-and-case-variations
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.4"
-tested_on: "Oracle 19c"
-tags: [plsql, loops, case, control-flow, forall, bulk-collect, collections]
-description: "All loop forms in PL/SQL (LOOP, WHILE, numeric FOR, REVERSE, cursor FOR, collection iteration, BULK + FORALL, labels, CONTINUE/EXIT) and all CASE expression variants (simple, searched, in SQL and PL/SQL)."
----
 ###### Oracle PL/SQL
 ### PL/SQL Loops & CASE
 Short, runnable fragments showing every loop flavor and CASE form you’ll realistically use in 19c.
@@ -388,3 +378,15 @@ END;
 * Keep CASE results type-consistent (e.g., all branches return `VARCHAR2(…)`).
 
 
+```yaml
+---
+id: sql/oracle/plsql/loops-and-case-variations
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.4"
+tested_on: "Oracle 19c"
+tags: [plsql, loops, case, control-flow, forall, bulk-collect, collections]
+description: "All loop forms in PL/SQL (LOOP, WHILE, numeric FOR, REVERSE, cursor FOR, collection iteration, BULK + FORALL, labels, CONTINUE/EXIT) and all CASE expression variants (simple, searched, in SQL and PL/SQL)."
+---
+```

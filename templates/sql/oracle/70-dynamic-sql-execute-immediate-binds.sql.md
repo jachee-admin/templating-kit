@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/dynamic-sql-binds
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, dynamic-sql, execute-immediate, binds]
-description: "Use EXECUTE IMMEDIATE with proper bind variables and RETURNING INTO"
----
 ###### Oracle PL/SQL
 ### Dynamic SQL with binds (+ RETURNING)
 Avoid concatenation; bind both inputs and outputs.
@@ -25,4 +15,17 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE('Inserted val='||v_new);
 END;
 /
+```
+
+```yaml
+---
+id: sql/oracle/plsql/dynamic-sql-binds
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, dynamic-sql, execute-immediate, binds]
+description: "Use EXECUTE IMMEDIATE with proper bind variables and RETURNING INTO"
+---
 ```

@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/package-constants-init
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, package, constants, initialization]
-description: "Package with constants, types, and one-time initialization in the package body"
----
 ###### Oracle PL/SQL
 ### Package constants + one-time init
 Centralize shared types/constants; run a small init block exactly once per session.
@@ -27,4 +17,17 @@ BEGIN
   init; -- runs once per session when package is first referenced
 END app_env;
 /
+```
+
+```yaml
+---
+id: sql/oracle/plsql/package-constants-init
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, package, constants, initialization]
+description: "Package with constants, types, and one-time initialization in the package body"
+---
 ```

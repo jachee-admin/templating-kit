@@ -1,8 +1,9 @@
-Love that. Comparing “the optimizer’s guess” vs “what actually happened” is how you catch bad stats, skew, and bind peeking weirdness. Here’s a clean, copy-paste setup.
+###### Oracle PL/SQL
+## Explain Plan - Build
 
-# 1) Setup: PLAN_TABLE + minimal grants
+### 1) Setup: PLAN_TABLE + minimal grants
 
-## 1A) Create `PLAN_TABLE` (run in each schema that will use EXPLAIN PLAN)
+### 1A) Create `PLAN_TABLE` (run in each schema that will use EXPLAIN PLAN)
 
 ```sql
 -- If it already exists, you can skip this.
@@ -179,9 +180,3 @@ ALTER SESSION SET statistics_level = TYPICAL;  -- restore
 SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(NULL, NULL, 'BASIC'));
 ```
 
----
-
-If you want, I can wrap these into two tiny scripts for you:
-
-* `plan_setup.sql` → creates `plan_table` and prints what to ask DBA for.
-* `plan_demo.sql` → runs a sample query twice (with `EXPLAIN PLAN` and then real execution), dumps both plans, and highlights differences.

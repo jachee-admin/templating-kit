@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/exception-mapping
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, exceptions, pragma, exception_init]
-description: "Map ORA- errors to named exceptions with PRAGMA EXCEPTION_INIT for readable handlers"
----
 ###### Oracle PL/SQL
 ### Named exceptions via PRAGMA EXCEPTION_INIT
 Give ORA‑codes human names so handlers read cleanly and self‑document intent.
@@ -31,4 +21,16 @@ EXCEPTION
     DBMS_OUTPUT.PUT_LINE('Unexpected: '||SQLERRM);
 END;
 /
+```
+```yaml
+---
+id: sql/oracle/plsql/exception-mapping
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, exceptions, pragma, exception_init]
+description: "Map ORA- errors to named exceptions with PRAGMA EXCEPTION_INIT for readable handlers"
+---
 ```

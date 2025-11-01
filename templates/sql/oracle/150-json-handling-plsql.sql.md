@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/json-object
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, json, json_object_t]
-description: "Use JSON_OBJECT_T/JSON_ARRAY_T to parse and build JSON"
----
 ###### Oracle PL/SQL
 ### JSON in PL/SQL (object API)
 Cleanly parse, access, and emit JSON without string hacks.
@@ -23,4 +13,17 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE(j.stringify);
 END;
 /
+```
+
+```yaml
+---
+id: sql/oracle/plsql/json-object
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, json, json_object_t]
+description: "Use JSON_OBJECT_T/JSON_ARRAY_T to parse and build JSON"
+---
 ```

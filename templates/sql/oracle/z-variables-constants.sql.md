@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/variables-constants-19c
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.3"
-tested_on: "Oracle 19c"
-tags: [plsql, variables, constants, datatypes]
-description: "Examples of declaring variables and constants for the major Oracle 19c PL/SQL scalar datatypes."
----
 ###### Oracle PL/SQL
 ### Variables & Constants — Oracle 19c scalar datatypes
 One-file tour of the usual suspects. Each declaration shows idiomatic defaults and constant forms. Prefer `PLS_INTEGER`/`SIMPLE_INTEGER` for loop counters, `VARCHAR2` over `CHAR`, and LOBs over legacy `LONG`/`LONG RAW`.
@@ -58,10 +48,11 @@ DECLARE
   --------------------------------------------------------------------
   -- Date & time
   --------------------------------------------------------------------
-  v_date       DATE                    := SYSDATE;        -- date + time (no TZ)
-  v_ts         TIMESTAMP               := SYSTIMESTAMP;   -- fractional seconds
+  v_date       DATE                     := SYSDATE;        -- date + time (no TZ)
+  v_ts         TIMESTAMP                := SYSTIMESTAMP;   -- fractional seconds
   v_tstz       TIMESTAMP WITH TIME ZONE := SYSTIMESTAMP;
   v_tslTZ      TIMESTAMP WITH LOCAL TIME ZONE := SYSTIMESTAMP; -- stored normalized to DB TZ
+  v_also_ts    TIMESTAMP(6)             := SYSTIMESTAMP;
 
   -- Intervals
   v_iym        INTERVAL YEAR TO MONTH := INTERVAL '1-6' YEAR TO MONTH;   -- 1 year 6 months
@@ -112,3 +103,16 @@ END;
 - `TIMESTAMP WITH LOCAL TIME ZONE` stores in DB time zone; clients see local time on fetch.
 - Prefer `CLOB/BLOB` to `LONG/LONG RAW`. Keep LOB I/O inside transactions short and consider temporary LOBs via `DBMS_LOB.createtemporary` for staging.
 - Use `%TYPE`/`%ROWTYPE` to avoid drift when schemas evolve.
+
+```yaml
+---
+id: sql/oracle/plsql/variables-constants-19c
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.3"
+tested_on: "Oracle 19c"
+tags: [plsql, variables, constants, datatypes]
+description: "Examples of declaring variables and constants for the major Oracle 19c PL/SQL scalar datatypes."
+---
+```

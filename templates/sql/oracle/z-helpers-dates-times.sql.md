@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/datetime-null-helpers-19c
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.13"
-tested_on: "Oracle 19c"
-tags: [plsql, dates, timestamps, timezones, intervals, parsing, truncation, bucket, business-day, nulls, nvl, coalesce, nullif]
-description: "Practical date/time + NULL helpers for Oracle 19c: parsing/formatting, timezone-safe conversion, interval math, bucketing, working-day utilities, range overlap checks, date series, and all the NULL functions with idiomatic patterns."
----
 ###### Oracle PL/SQL
 ### Dates/Times & NULL helpers — practical toolkit (Oracle 19c)
 Copy/paste snippets you’ll actually use in apps, ETL, and reports.
@@ -332,4 +322,15 @@ NUMTODSINTERVAL(n,'MINUTE|HOUR|DAY|SECOND')   NUMTOYMINTERVAL(n,'MONTH|YEAR')
 FROM_TZ(ts,'UTC') AT TIME ZONE 'Europe/Copenhagen'
 TO_DATE(txt, 'FXYYYY-MM-DD' DEFAULT DATE '1900-01-01' ON CONVERSION ERROR)
 ```
-
+```yaml
+---
+id: sql/oracle/plsql/datetime-null-helpers-19c
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.13"
+tested_on: "Oracle 19c"
+tags: [plsql, dates, timestamps, timezones, intervals, parsing, truncation, bucket, business-day, nulls, nvl, coalesce, nullif]
+description: "Practical date/time + NULL helpers for Oracle 19c: parsing/formatting, timezone-safe conversion, interval math, bucketing, working-day utilities, range overlap checks, date series, and all the NULL functions with idiomatic patterns."
+---
+```

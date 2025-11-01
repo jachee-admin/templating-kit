@@ -1,13 +1,3 @@
----
-id: sql/oracle/explain-plan-all-in-one
-lang: sql
-platform: oracle
-scope: tuning
-since: "v0.4"
-tested_on: "Oracle 19c"
-tags: [explain-plan, dbms_xplan, display_cursor, sql-monitor, autotrace, performance]
-description: "All-in-one guide to preparing, running, and reading Oracle 19c execution plans with EXPLAIN PLAN, DBMS_XPLAN, DISPLAY_CURSOR (actuals), AUTOTRACE, and SQL Monitor."
----
 ###### Oracle PL/SQL
 ## EXPLAIN PLAN (Oracle 19c+)
 Concise, practical reference for estimating plans, capturing actuals, and understanding what the plan is saying.
@@ -254,6 +244,15 @@ SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY(NULL,NULL,'BASIC +PREDICATE +PROJECTION')
 SELECT DBMS_SQLTUNE.REPORT_SQL_MONITOR(sql_id => NULL, report_level => 'ALL') AS rpt
 FROM   dual;
 ```
-
-
-
+```yaml
+---
+id: sql/oracle/explain-plan-all-in-one
+lang: sql
+platform: oracle
+scope: tuning
+since: "v0.4"
+tested_on: "Oracle 19c"
+tags: [explain-plan, dbms_xplan, display_cursor, sql-monitor, autotrace, performance]
+description: "All-in-one guide to preparing, running, and reading Oracle 19c execution plans with EXPLAIN PLAN, DBMS_XPLAN, DISPLAY_CURSOR (actuals), AUTOTRACE, and SQL Monitor."
+---
+```

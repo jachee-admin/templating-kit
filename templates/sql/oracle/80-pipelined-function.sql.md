@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/pipelined-function
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, pipelined, table-function]
-description: "Stream rows from PL/SQL as if they were a table using a pipelined function"
----
 ###### Oracle PL/SQL
 ### Pipelined table function
 Great for lightweight transforms without staging tables.
@@ -32,4 +22,17 @@ END;
 /
 -- Use it
 SELECT * FROM TABLE(f_numbers(5));
+```
+
+```yaml
+---
+id: sql/oracle/plsql/pipelined-function
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, pipelined, table-function]
+description: "Stream rows from PL/SQL as if they were a table using a pipelined function"
+---
 ```

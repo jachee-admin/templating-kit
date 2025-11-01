@@ -1,18 +1,4 @@
----
-id: sql/oracle/plsql/records-and-cursors
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.4"
-tested_on: "Oracle 19c"
-tags: [plsql, records, rowtype, cursors, ref-cursor, for-update, bulk-collect]
-description: "Practical patterns for RECORD/%ROWTYPE, parameterized and FOR UPDATE cursors, cursor attributes, BULK COLLECT into record collections, RETURNING INTO records, and strong/weak REF CURSORs.---
 ###### Oracle PL/SQL
-### Records & Cursors — intelligent patterns you’ll actually use
-A tour of the idioms that make day-to-day PL/SQL clean, fast, and safe.
-
----
-
 ## 1) User-defined RECORD (anchored to table types)
 Keep your declarations drift-proof by anchoring to column `%TYPE`. Add defaults where it helps.
 
@@ -32,7 +18,7 @@ BEGIN
   VALUES (r.account_id, r.email, r.created_at, r.updated_at);
 END;
 /
-````
+```
 
 ---
 
@@ -340,3 +326,19 @@ END;
 * Strong `REF CURSOR` when the shape is fixed; `SYS_REFCURSOR` for dynamic shapes.
 * For true bulk DML, switch to `FORALL` with parallel scalar arrays and `SAVE EXCEPTIONS`.
 
+```yaml
+---
+id: sql/oracle/plsql/records-and-cursors
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.4"
+tested_on: "Oracle 19c"
+tags: [plsql, records, rowtype, cursors, ref-cursor, for-update, bulk-collect]
+description: "Practical patterns for RECORD/%ROWTYPE, parameterized and FOR UPDATE cursors, cursor attributes, BULK COLLECT into record collections, RETURNING INTO records, and strong/weak REF CURSORs.---
+###### Oracle PL/SQL
+### Records & Cursors — intelligent patterns you’ll actually use
+A tour of the idioms that make day-to-day PL/SQL clean, fast, and safe.
+
+---
+```

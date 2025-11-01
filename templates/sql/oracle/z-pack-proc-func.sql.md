@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/subprogram-variations-19c
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.8"
-tested_on: "Oracle 19c"
-tags: [plsql, packages, procedures, functions, overloading, authid, nocopy, result_cache, deterministic, pipelined, parallel_enable, ref-cursor, serially_reusable, accessible_by, autonomous_transaction, udf]
-description: "An exhaustive catalog of PL/SQL subprogram variations you can drop into any schema: package patterns, procedures, and function flavors with 19c-friendly options."
----
 ###### Oracle PL/SQL
 ### Packages, Procedures & Functions — the exhaustive variations (Oracle 19c)
 Canonical snippets showing the legit ways to shape subprograms in 19c. Mix & match. (Most are minimal but real.)
@@ -461,3 +451,15 @@ END feature;
 * **Cache** repeat lookups → `RESULT_CACHE`.
 * Shape varies / client pulls → return **`SYS_REFCURSOR`** (or strong typed for fixed shape).
 
+```yaml
+---
+id: sql/oracle/plsql/subprogram-variations-19c
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.8"
+tested_on: "Oracle 19c"
+tags: [plsql, packages, procedures, functions, overloading, authid, nocopy, result_cache, deterministic, pipelined, parallel_enable, ref-cursor, serially_reusable, accessible_by, autonomous_transaction, udf]
+description: "An exhaustive catalog of PL/SQL subprogram variations you can drop into any schema: package patterns, procedures, and function flavors with 19c-friendly options."
+---
+```

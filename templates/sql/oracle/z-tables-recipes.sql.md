@@ -1,13 +1,3 @@
----
-id: sql/oracle/talbes-recipes.sql.md
-lang: sql
-platform: oracle
-scope: recipes and tables, info help
-since: "v0.1"
-tested_on: "Oracle 19c"
-tags: [help, recipes, tables, info]
-description: ""
----
 ###### Oracle PL/SQL
 
 ### Mini-recipes
@@ -100,3 +90,16 @@ END;
 | `DUP_VAL_ON_INDEX` | 00001 | Unique/PK violation |
 | `ZERO_DIVIDE` | 01476 | Divide by zero |
 | `VALUE_ERROR` | 06502 | Conversion/overflow |
+
+```yaml
+---
+id: sql/oracle/talbes-recipes.sql.md
+lang: sql
+platform: oracle
+scope: recipes and tables, info help
+since: "v0.1"
+tested_on: "Oracle 19c"
+tags: [help, recipes, tables, info]
+description: ""
+---
+```

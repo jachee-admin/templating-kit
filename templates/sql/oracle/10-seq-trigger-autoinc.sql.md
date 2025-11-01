@@ -1,13 +1,3 @@
----
-id: sql/oracle/seq-trigger-autoinc
-lang: sql
-platform: oracle
-scope: triggers
-since: "v0.1"
-tested_on: "Oracle 19c"
-tags: [sequence, trigger, autoincrement]
-description: "Assign nextval only when PK is NULL"
----
 ###### Oracle PL/SQL
 ### Sequence / Trigger
 ```sql
@@ -23,4 +13,17 @@ BEGIN
   :NEW.id := acct_seq.NEXTVAL;
 END;
 /
+```
+
+```yaml
+---
+id: sql/oracle/seq-trigger-autoinc
+lang: sql
+platform: oracle
+scope: triggers
+since: "v0.1"
+tested_on: "Oracle 19c"
+tags: [sequence, trigger, autoincrement]
+description: "Assign nextval only when PK is NULL"
+---
 ```

@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/function-result-cache
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, cache, performance, function]
-description: "Use FUNCTION RESULT_CACHE for fast repeat lookups of immutable data"
----
 ###### Oracle PL/SQL
 ### FUNCTION ... RESULT_CACHE
 Cache pure function results by arguments. Perfect for small reference lookups.
@@ -24,4 +14,17 @@ BEGIN
   RETURN v_name;
 END;
 /
+```
+
+```yaml
+---
+id: sql/oracle/plsql/function-result-cache
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, cache, performance, function]
+description: "Use FUNCTION RESULT_CACHE for fast repeat lookups of immutable data"
+---
 ```

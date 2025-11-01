@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/json-ansible-extravars-19c
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.5"
-tested_on: "Oracle 19c"
-tags: [plsql, json, json_object_t, json_array_t, json_table, json_value, json_mergepatch, clob, ansible]
-description: "Build Ansible Tower/AWX extravars JSON; receive inbound JSON (array or object), store in CLOB, and parse to columns. Includes 19c JSON tools: JSON_OBJECT_T/ARRAY_T, JSON_VALUE/JSON_QUERY, JSON_TABLE, JSON_MERGEPATCH, JSON_SERIALIZE, indexing/validation."
----
 ###### Oracle PL/SQL
 ### JSON
 #### (with Ansible Tower — build extravars, ingest CLOB, parse, persist (Oracle 19c))
@@ -328,3 +318,15 @@ WHEN NOT MATCHED THEN
 * Keep raw JSON **as-is** in `result_json` for auditability; project only what you need to columns.
 * For big payloads, watch **PGA/TEMP** usage when materializing large arrays; stream with `JSON_TABLE` where possible.
 
+```yaml
+---
+id: sql/oracle/plsql/json-ansible-extravars-19c
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.5"
+tested_on: "Oracle 19c"
+tags: [plsql, json, json_object_t, json_array_t, json_table, json_value, json_mergepatch, clob, ansible]
+description: "Build Ansible Tower/AWX extravars JSON; receive inbound JSON (array or object), store in CLOB, and parse to columns. Includes 19c JSON tools: JSON_OBJECT_T/ARRAY_T, JSON_VALUE/JSON_QUERY, JSON_TABLE, JSON_MERGEPATCH, JSON_SERIALIZE, indexing/validation."
+---
+```

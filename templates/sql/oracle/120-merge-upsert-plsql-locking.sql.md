@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/upsert-locking
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, upsert, locking, merge]
-description: "UPSERT pattern with MERGE; note locking semantics and unique keys"
----
 ###### Oracle PL/SQL
 
 ### MERGE upsert (clarity over cleverness)
@@ -22,4 +12,17 @@ WHEN MATCHED THEN
   UPDATE SET d.email = s.email, d.updated_at = SYSTIMESTAMP
 WHEN NOT MATCHED THEN
   INSERT (id, email, created_at) VALUES (s.id, s.email, SYSTIMESTAMP);
+```
+
+```yaml
+---
+id: sql/oracle/plsql/upsert-locking
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, upsert, locking, merge]
+description: "UPSERT pattern with MERGE; note locking semantics and unique keys"
+---
 ```

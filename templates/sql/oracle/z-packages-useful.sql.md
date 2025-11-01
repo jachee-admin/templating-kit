@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/helpful-packages-19c
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.14"
-tested_on: "Oracle 19c"
-tags: [plsql, packages, dbms_output, dbms_application_info, dbms_utility, dbms_lock, dbms_random, dbms_scheduler, utl_file, dbms_xplan, dbms_assert, dbms_metadata, dbms_stats, dbms_errlog, dbms_sql, utl_http]
-description: "Daily-driver PL/SQL packages with concise, copy-pasteable examples. Includes: DBMS_OUTPUT, DBMS_APPLICATION_INFO, DBMS_UTILITY, DBMS_LOCK, DBMS_RANDOM, DBMS_SCHEDULER, UTL_FILE, DBMS_XPLAN, plus high-value extras: DBMS_ASSERT, DBMS_METADATA, DBMS_STATS, DBMS_ERRLOG, DBMS_SQL, UTL_HTTP."
----
 ###### Oracle PL/SQL
 ### Helpful Packages — daily drivers & greatest hits (Oracle 19c)
 Practical, minimal snippets you’ll actually reuse.
@@ -332,4 +322,16 @@ BEGIN DBMS_SCHEDULER.RUN_JOB('JOB_NAME'); END; /
 
 -- Show last cursor plan
 SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(NULL,NULL,'ALLSTATS LAST'));
+```
+```yaml
+---
+id: sql/oracle/plsql/helpful-packages-19c
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.14"
+tested_on: "Oracle 19c"
+tags: [plsql, packages, dbms_output, dbms_application_info, dbms_utility, dbms_lock, dbms_random, dbms_scheduler, utl_file, dbms_xplan, dbms_assert, dbms_metadata, dbms_stats, dbms_errlog, dbms_sql, utl_http]
+description: "Daily-driver PL/SQL packages with concise, copy-pasteable examples. Includes: DBMS_OUTPUT, DBMS_APPLICATION_INFO, DBMS_UTILITY, DBMS_LOCK, DBMS_RANDOM, DBMS_SCHEDULER, UTL_FILE, DBMS_XPLAN, plus high-value extras: DBMS_ASSERT, DBMS_METADATA, DBMS_STATS, DBMS_ERRLOG, DBMS_SQL, UTL_HTTP."
+---
 ```

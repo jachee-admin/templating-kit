@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/collections-bulk-19c
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.9"
-tested_on: "Oracle 19c"
-tags: [plsql, collections, associative-array, nested-table, varray, bulk-collect, forall, save-exceptions, indices-of, values-of, table, multiset]
-description: "Collections in PL/SQL (index-by/associative arrays, nested tables, varrays) with practical BULK COLLECT & FORALL patterns: batching, sparse traversal, INDICES OF / VALUES OF, RETURNING BULK COLLECT, and using collections in SQL."
----
 ###### Oracle PL/SQL
 ### Collections + BULK COLLECT & FORALL — comprehensive patterns (19c)
 Drop-in examples for every collection flavor and high-throughput bulk processing. Use `BULK COLLECT` to cut context switches on fetch; use `FORALL` for set DML.
@@ -376,3 +366,16 @@ END;
 /
 ```
 
+
+```yaml
+---
+id: sql/oracle/plsql/collections-bulk-19c
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.9"
+tested_on: "Oracle 19c"
+tags: [plsql, collections, associative-array, nested-table, varray, bulk-collect, forall, save-exceptions, indices-of, values-of, table, multiset]
+description: Collections in PL/SQL (index-by/associative arrays, nested tables, varrays) with practical BULK COLLECT & FORALL patterns: batching, sparse traversal, INDICES OF / VALUES OF, RETURNING BULK COLLECT, and using collections in SQL.
+---
+```

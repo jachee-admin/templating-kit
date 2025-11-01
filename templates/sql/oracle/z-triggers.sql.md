@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/triggers-19c
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.12"
-tested_on: "Oracle 19c"
-tags: [plsql, triggers, row-level, statement-level, compound-trigger, instead-of, ddl-trigger, audit, follows, mutating-table, validation]
-description: "Trigger patterns in Oracle 19c: BEFORE/AFTER row & statement triggers, INSTEAD OF (views), COMPOUND triggers to avoid mutating-table errors, auditing/change-log, validation, sequencing, DDL & LOGON triggers, and operational tips."
----
 ###### Oracle PL/SQL
 ### Triggers — practical examples & usage (Oracle 19c)
 Use declarative constraints first. Reach for triggers when you *must* enforce cross-row logic, audit changes, integrate, or maintain denormalized data. Prefer **compound triggers** to dodge mutating-table problems.
@@ -361,3 +351,15 @@ END;
 * **Don’t** COMMIT/ROLLBACK inside normal triggers (except tiny autonomous logging).
 * **Do** document each trigger’s purpose; too many hidden side-effects hurt maintainability.
 
+```yaml
+---
+id: sql/oracle/plsql/triggers-19c
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.12"
+tested_on: "Oracle 19c"
+tags: [plsql, triggers, row-level, statement-level, compound-trigger, instead-of, ddl-trigger, audit, follows, mutating-table, validation]
+description: "Trigger patterns in Oracle 19c: BEFORE/AFTER row & statement triggers, INSTEAD OF (views), COMPOUND triggers to avoid mutating-table errors, auditing/change-log, validation, sequencing, DDL & LOGON triggers, and operational tips."
+---
+```

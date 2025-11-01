@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/transaction-management-19c
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.11"
-tested_on: "Oracle 19c"
-tags: [plsql, transactions, commit, rollback, savepoint, autonomous_transaction, for-update, nowait, skip-locked, wait, where-current-of, set-transaction, isolation, serializable, read-only, dbms_lock, retry, deadlock]
-description: "End-to-end transaction management patterns: COMMIT/ROLLBACK/SAVEPOINT, PRAGMA AUTONOMOUS_TRANSACTION, row-level locking (FOR UPDATE, NOWAIT, WAIT n, SKIP LOCKED, WHERE CURRENT OF), SET TRANSACTION (READ ONLY / ISOLATION LEVEL SERIALIZABLE / NAME), advisory locks with DBMS_LOCK, and resilient retry patterns."
----
 ###### Oracle PL/SQL
 ### Transaction Management — commits, locks, isolation, and retries (Oracle 19c)
 Practical, paste-ready patterns for safe concurrency and clean transaction boundaries.
@@ -304,3 +294,15 @@ END;
 * **Do** implement **retry** for deadlocks/timeouts with jittered backoff.
 * **Do** test concurrency paths with realistic parallel sessions and verify with `DBMS_XPLAN.DISPLAY_CURSOR` + ASH/AWR where available.
 
+```yaml
+---
+id: sql/oracle/plsql/transaction-management-19c
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.11"
+tested_on: "Oracle 19c"
+tags: [plsql, transactions, commit, rollback, savepoint, autonomous_transaction, for-update, nowait, skip-locked, wait, where-current-of, set-transaction, isolation, serializable, read-only, dbms_lock, retry, deadlock]
+description: "End-to-end transaction management patterns: COMMIT/ROLLBACK/SAVEPOINT, PRAGMA AUTONOMOUS_TRANSACTION, row-level locking (FOR UPDATE, NOWAIT, WAIT n, SKIP LOCKED, WHERE CURRENT OF), SET TRANSACTION (READ ONLY / ISOLATION LEVEL SERIALIZABLE / NAME), advisory locks with DBMS_LOCK, and resilient retry patterns."
+---
+```

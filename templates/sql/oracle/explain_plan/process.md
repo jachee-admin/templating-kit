@@ -1,8 +1,5 @@
-Good question — and this one’s quietly changed over the years. The short version is:
-`EXPLAIN PLAN` is fine for *rough sketches*, but the **real plan of record** comes from the *actual cursor* in memory. That means:
-✅ **`DBMS_XPLAN.DISPLAY_CURSOR`**, not just `EXPLAIN PLAN FOR …`.
-
-Let’s unpack that carefully.
+###### Oracle PL/SQL
+## Explain Plan - Process
 
 ---
 
@@ -126,6 +123,3 @@ That shows both estimated vs. actual rows per step — which is *gold* for diagn
 | 3    | `SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(NULL, NULL, 'ALLSTATS LAST'));` | see the *actual* plan        |
 | 4    | Optional: use `sql_id` from `V$SQL` for cross-session analysis                 | deep dive or historic lookup |
 
----
-
-Would you like me to show you a **sample `DBMS_XPLAN.DISPLAY_CURSOR` output** (annotated line by line) so you can see how to interpret estimated vs. actual rows, CPU, and I/O?

@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/bulk-collect-forall
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, bulk-collect, forall, performance]
-description: "Bulk fetch + FORALL DML with SAVE EXCEPTIONS and per-row error reporting"
----
 ###### Oracle PL/SQL
 ### Bulk COLLECT + FORALL with per-row error capture
 High‑throughput pattern: fetch rows in arrays, DML with `FORALL`, keep going on bad rows using `SAVE EXCEPTIONS`, then report which rows failed.
@@ -42,4 +32,17 @@ BEGIN
   CLOSE c_src;
 END;
 /
+```
+
+```yaml
+---
+id: sql/oracle/plsql/bulk-collect-forall
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, bulk-collect, forall, performance]
+description: "Bulk fetch + FORALL DML with SAVE EXCEPTIONS and per-row error reporting"
+---
 ```

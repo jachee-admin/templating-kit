@@ -1,13 +1,3 @@
----
-id: sql/oracle/append-errlog
-lang: sql
-platform: oracle
-scope: dml
-since: "v0.1"
-tested_on: "Oracle 19c"
-tags: [direct-path, error-logging]
-description: "High-throughput insert with DML error logging"
----
 ###### Oracle PL/SQL
 ### Errlog: Setup once
 ```sql
@@ -23,4 +13,17 @@ INSERT /*+ APPEND */ INTO stage_orders_csv (col1, col2, ...)
 SELECT col1, col2, ...
 FROM   ext_table
 LOG ERRORS INTO err$_stage_orders_csv ('LOAD') REJECT LIMIT UNLIMITED;
+```
+
+```yaml
+---
+id: sql/oracle/append-errlog
+lang: sql
+platform: oracle
+scope: dml
+since: "v0.1"
+tested_on: "Oracle 19c"
+tags: [direct-path, error-logging]
+description: "High-throughput insert with DML error logging"
+---
 ```

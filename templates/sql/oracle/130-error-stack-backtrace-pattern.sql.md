@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/error-stack-backtrace
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, error-handling, backtrace]
-description: "Preserve stack and show where it failed using FORMAT_ERROR_BACKTRACE"
----
 ###### Oracle PL/SQL
 ### Re-raise with context, keep stack
 Never swallow the stack; attach context then re-raise.
@@ -23,4 +13,17 @@ EXCEPTION
     RAISE;
 END;
 /
+```
+
+```yaml
+---
+id: sql/oracle/plsql/error-stack-backtrace
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, error-handling, backtrace]
+description: "Preserve stack and show where it failed using FORMAT_ERROR_BACKTRACE"
+---
 ```

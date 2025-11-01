@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/exception-handling-19c
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.7"
-tested_on: "Oracle 19c"
-tags: [plsql, exceptions, error-handling, logging, pragma, exception_init, backtrace, sqlerrm, save-exceptions, dbms_errlog, validation]
-description: "Everything PL/SQL exception handling: basics, named exceptions, PRAGMA EXCEPTION_INIT, validation patterns, re-raise vs RAISE_APPLICATION_ERROR, stack/ backtrace capture, partial rollbacks, bulk SAVE EXCEPTIONS, DBMS_ERRLOG, nested blocks, function defaults, and best practices."
----
 ###### Oracle PL/SQL
 ### PL/SQL Exception Handling — the kitchen sink (Oracle 19c)
 Use these patterns as snap-ins. Prefer small try/handle scopes, preserve the stack, and log with context.
@@ -393,3 +383,15 @@ END;
 * **Centralize logging** (autonomous transaction) so errors survive rollbacks.
 * **Allocate error code ranges** per package/domain for maintainability.
 
+```yaml
+---
+id: sql/oracle/plsql/exception-handling-19c
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.7"
+tested_on: "Oracle 19c"
+tags: [plsql, exceptions, error-handling, logging, pragma, exception_init, backtrace, sqlerrm, save-exceptions, dbms_errlog, validation]
+description: "Everything PL/SQL exception handling: basics, named exceptions, PRAGMA EXCEPTION_INIT, validation patterns, re-raise vs RAISE_APPLICATION_ERROR, stack/ backtrace capture, partial rollbacks, bulk SAVE EXCEPTIONS, DBMS_ERRLOG, nested blocks, function defaults, and best practices."
+---
+```

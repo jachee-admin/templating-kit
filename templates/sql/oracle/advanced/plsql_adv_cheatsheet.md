@@ -1,8 +1,7 @@
+###### Oracle PL/SQL
+## Explain Plan - Build
+
 # PL/SQL Cheatsheet — Advanced
-
-> Target: Oracle 12c–19c+ (version notes where relevant). Focus on performance, correctness, maintainability, and production patterns. Reminder: in Oracle, empty string `''` is **NULL** for `CHAR/VARCHAR2`.
-
----
 
 ## 1) Advanced program-unit design
 

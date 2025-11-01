@@ -1,13 +1,3 @@
----
-id: sql/oracle/explain-plan-modern
-lang: sql
-platform: oracle
-scope: tuning
-since: "v0.1"
-tested_on: "Oracle 19c"
-tags: [explain-plan, dbms_xplan]
-description: "Plan table setup and display helpers"
----
 ###### Oracle PL/SQL
 ### Explain Plan: Create plan table (once per schema if missing)
 ```sql
@@ -24,4 +14,17 @@ SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY(format => 'BASIC +PREDICATE +PROJECTION')
 ### After execution: real stats
 ```sql
 SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(NULL, NULL, 'ALLSTATS LAST'));
+```
+
+```yaml
+---
+id: sql/oracle/explain-plan-modern
+lang: sql
+platform: oracle
+scope: tuning
+since: "v0.1"
+tested_on: "Oracle 19c"
+tags: [explain-plan, dbms_xplan]
+description: "Plan table setup and display helpers"
+---
 ```

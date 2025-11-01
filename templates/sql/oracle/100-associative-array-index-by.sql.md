@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/associative-array
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, collections, associative-array]
-description: "INDEX BY (associative) arrays: fast in-memory maps keyed by VARCHAR2 or PLS_INTEGER"
----
 ###### Oracle PL/SQL
 ### Associative array (map) idiom
 Hash‑map semantics for quick lookups and de‑dupe.
@@ -25,4 +15,17 @@ BEGIN
   v_seen.DELETE('alice@example.com');
 END;
 /
+```
+
+```yaml
+---
+id: sql/oracle/plsql/associative-array
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, collections, associative-array]
+description: "INDEX BY (associative) arrays: fast in-memory maps keyed by VARCHAR2 or PLS_INTEGER"
+---
 ```

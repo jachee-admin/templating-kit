@@ -1,13 +1,3 @@
----
-id: sql/oracle/plsql/autonomous-logging
-lang: sql
-platform: oracle
-scope: plsql
-since: "v0.2"
-tested_on: "Oracle 19c"
-tags: [plsql, logging, autonomous_transaction]
-description: "Write durable logs from a failed transaction using PRAGMA AUTONOMOUS_TRANSACTION"
----
 ###### Oracle PL/SQL
 ### Autonomous transaction logger
 Log errors even when the caller rolls back. Keep it tiny and safe.
@@ -28,4 +18,17 @@ BEGIN
   COMMIT;
 END;
 /
+```
+
+```yaml
+---
+id: sql/oracle/plsql/autonomous-logging
+lang: sql
+platform: oracle
+scope: plsql
+since: "v0.2"
+tested_on: "Oracle 19c"
+tags: [plsql, logging, autonomous_transaction]
+description: "Write durable logs from a failed transaction using PRAGMA AUTONOMOUS_TRANSACTION"
+---
 ```
