@@ -385,7 +385,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/exception-handling-19c
+id: templates/sql/oracle/220-exception-handling.sql.md
 lang: sql
 platform: oracle
 scope: plsql

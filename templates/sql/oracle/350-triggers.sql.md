@@ -353,7 +353,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/triggers-19c
+id: templates/sql/oracle/350-triggers.sql.md
 lang: sql
 platform: oracle
 scope: plsql

@@ -320,7 +320,7 @@ WHEN NOT MATCHED THEN
 
 ```yaml
 ---
-id: sql/oracle/plsql/json-ansible-extravars-19c
+id: templates/sql/oracle/250-json.sql.md
 lang: sql
 platform: oracle
 scope: plsql

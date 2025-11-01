@@ -17,7 +17,7 @@ LOG ERRORS INTO err$_stage_orders_csv ('LOAD') REJECT LIMIT UNLIMITED;
 
 ```yaml
 ---
-id: sql/oracle/append-errlog
+id: templates/sql/oracle/20-insert-append-and-errlog.sql.md
 lang: sql
 platform: oracle
 scope: dml

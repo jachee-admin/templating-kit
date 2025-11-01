@@ -21,7 +21,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/cursor-for-loop-batch
+id: templates/sql/oracle/140-cursor-for-loop-and-batch-limit.sql.md
 lang: sql
 platform: oracle
 scope: plsql

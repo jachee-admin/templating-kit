@@ -453,7 +453,7 @@ END feature;
 
 ```yaml
 ---
-id: sql/oracle/plsql/subprogram-variations-19c
+id: templates/sql/oracle/280-pack-proc-func.sql.md
 lang: sql
 platform: oracle
 scope: plsql

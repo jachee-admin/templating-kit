@@ -296,7 +296,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/transaction-management-19c
+id: templates/sql/oracle/340-transactions.sql.md
 lang: sql
 platform: oracle
 scope: plsql

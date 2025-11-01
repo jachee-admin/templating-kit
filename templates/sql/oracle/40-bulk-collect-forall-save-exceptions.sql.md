@@ -36,7 +36,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/bulk-collect-forall
+id: templates/sql/oracle/40-bulk-collect-forall-save-exceptions.sql.md
 lang: sql
 platform: oracle
 scope: plsql

@@ -343,7 +343,7 @@ SELECT account_id, 100 FROM accounts;
 ```
 ```yaml
 ---
-id: sql/oracle/plsql/dml-19c
+id: templates/sql/oracle/310-plsql-dml.sql.md
 lang: sql
 platform: oracle
 scope: plsql

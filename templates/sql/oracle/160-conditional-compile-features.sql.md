@@ -15,7 +15,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/conditional-compile
+id: templates/sql/oracle/160-conditional-compile-features.sql.md
 lang: sql
 platform: oracle
 scope: plsql

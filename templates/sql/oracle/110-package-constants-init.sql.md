@@ -21,7 +21,7 @@ END app_env;
 
 ```yaml
 ---
-id: sql/oracle/plsql/package-constants-init
+id: templates/sql/oracle/110-package-constants-init.sql.md
 lang: sql
 platform: oracle
 scope: plsql

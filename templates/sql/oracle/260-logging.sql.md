@@ -285,7 +285,7 @@ END IF;
 
 ```yaml
 ---
-id: sql/oracle/plsql/generic-logging-19c
+id: templates/sql/oracle/260-logging.sql.md
 lang: sql
 platform: oracle
 scope: plsql

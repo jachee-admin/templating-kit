@@ -19,7 +19,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/associative-array
+id: templates/sql/oracle/100-associative-array-index-by.sql.md
 lang: sql
 platform: oracle
 scope: plsql

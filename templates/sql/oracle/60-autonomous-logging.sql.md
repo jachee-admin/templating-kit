@@ -22,7 +22,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/autonomous-logging
+id: templates/sql/oracle/60-autonomous-logging.sql.md
 lang: sql
 platform: oracle
 scope: plsql

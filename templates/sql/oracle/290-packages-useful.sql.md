@@ -325,7 +325,7 @@ SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(NULL,NULL,'ALLSTATS LAST'));
 ```
 ```yaml
 ---
-id: sql/oracle/plsql/helpful-packages-19c
+id: templates/sql/oracle/290-packages-useful.sql.md
 lang: sql
 platform: oracle
 scope: plsql

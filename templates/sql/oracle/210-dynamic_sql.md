@@ -223,7 +223,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/dynamic-sql-19c
+id: templates/sql/oracle/210-dynamic_sql.md
 lang: sql
 platform: oracle
 scope: plsql

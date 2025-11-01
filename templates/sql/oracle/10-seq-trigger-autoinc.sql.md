@@ -17,7 +17,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/seq-trigger-autoinc
+id: templates/sql/oracle/10-seq-trigger-autoinc.sql.md
 lang: sql
 platform: oracle
 scope: triggers

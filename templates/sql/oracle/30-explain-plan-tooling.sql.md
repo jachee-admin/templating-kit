@@ -18,7 +18,7 @@ SELECT * FROM TABLE(DBMS_XPLAN.DISPLAY_CURSOR(NULL, NULL, 'ALLSTATS LAST'));
 
 ```yaml
 ---
-id: sql/oracle/explain-plan-modern
+id: templates/sql/oracle/30-explain-plan-tooling.sql.md
 lang: sql
 platform: oracle
 scope: tuning

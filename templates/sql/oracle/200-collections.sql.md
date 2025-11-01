@@ -369,7 +369,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/collections-bulk-19c
+id: templates/sql/oracle/200-collections.sql.md
 lang: sql
 platform: oracle
 scope: plsql

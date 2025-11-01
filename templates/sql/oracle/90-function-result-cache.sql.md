@@ -18,7 +18,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/function-result-cache
+id: templates/sql/oracle/90-function-result-cache.sql.md
 lang: sql
 platform: oracle
 scope: plsql

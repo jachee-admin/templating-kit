@@ -328,7 +328,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/records-and-cursors
+id: templates/sql/oracle/320-records-and-cursors.sql.md
 lang: sql
 platform: oracle
 scope: plsql

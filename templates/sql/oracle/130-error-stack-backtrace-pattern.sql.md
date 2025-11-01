@@ -17,7 +17,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/error-stack-backtrace
+id: templates/sql/oracle/130-error-stack-backtrace-pattern.sql.md
 lang: sql
 platform: oracle
 scope: plsql

@@ -19,7 +19,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/dynamic-sql-binds
+id: templates/sql/oracle/70-dynamic-sql-execute-immediate-binds.sql.md
 lang: sql
 platform: oracle
 scope: plsql

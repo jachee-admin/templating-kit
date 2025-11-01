@@ -18,7 +18,7 @@
 - Prefer bind variables; never string-concatenate user input.
 ```yaml
 ---
-id: sql/oracle/plsql/helpful-packages-19c
+id: templates/sql/oracle/300-perf.sql.md
 lang: sql
 platform: oracle
 scope: plsql

@@ -17,7 +17,7 @@ END;
 
 ```yaml
 ---
-id: sql/oracle/plsql/json-object
+id: stemplates/sql/oracle/150-json-handling-plsql.sql.md
 lang: sql
 platform: oracle
 scope: plsql

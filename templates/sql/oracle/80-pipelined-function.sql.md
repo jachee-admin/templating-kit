@@ -26,7 +26,7 @@ SELECT * FROM TABLE(f_numbers(5));
 
 ```yaml
 ---
-id: sql/oracle/plsql/pipelined-function
+id: templates/sql/oracle/80-pipelined-function.sql.md
 lang: sql
 platform: oracle
 scope: plsql

@@ -246,7 +246,7 @@ FROM   dual;
 ```
 ```yaml
 ---
-id: sql/oracle/explain-plan-all-in-one
+id: templates/sql/oracle/230-explain-plan.sql.md
 lang: sql
 platform: oracle
 scope: tuning
