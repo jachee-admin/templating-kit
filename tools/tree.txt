@@ -1,0 +1,42 @@
+.
+├── CONTRIBUTING.md
+├── LICENSE
+├── installs
+├── templates
+│   ├── 10-secret-management-notes.md
+│   ├── 20-sso-saml-oidc-cheatsheet.md
+│   ├── ansible
+│   │   ├── 10-users-and-groups.yml
+│   │   └── 20-postgres-db-user.yml
+│   ├── apex
+│   │   ├── 10-app-export-checklist.md
+│   │   ├── 20-csv-import-sql-developer.md
+│   │   └── 30-auth-schemes-overview.md
+│   ├── bash
+│   │   ├── 10-strict-mode.sh
+│   │   └── 20-log-rotate-skel.sh
+│   ├── git-github
+│   │   ├── 10-pr-template.md
+│   │   ├── 10-python-ci.yml
+│   │   ├── 20-issue-templates.md
+│   │   └── actions
+│   ├── grep-snippets.py
+│   ├── ords
+│   │   ├── 10-serve-config-snippets.md
+│   │   └── 20-proxy-user-and-logging.md
+│   ├── python
+│   │   ├── 10-retry-with-jitter.py
+│   │   └── 20-csv-to-json.py
+│   ├── security
+│   └── sql
+│       ├── 10-seq-trigger-autoinc.sql
+│       ├── 20-insert-append-and-errlog.sql
+│       ├── 30-explain-plan-tooling.sql
+│       ├── oracle
+│       └── postgres
+│           ├── 10-upsert-basic.sql
+│           ├── 20-rls-skeleton.sql
+│           └── 30-audit-triggers.sql
+└── tools
+    ├── scaffold_from_tree.py
+    └── tree.txt

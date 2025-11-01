@@ -1,0 +1,1 @@
+# short guide on snippet headers, testing, and PR flow.
