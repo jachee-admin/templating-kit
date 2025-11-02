@@ -221,6 +221,12 @@ END;
 * For performance testing, compare plans with `DBMS_XPLAN.DISPLAY_CURSOR` after running dynamic statements (use `/*+ GATHER_PLAN_STATISTICS */`).
 * Transaction semantics are unaffected: dynamic SQL runs in the caller’s transaction (unless you explicitly use an autonomous block).
 
+
+
+---
+
+
+
 ```yaml
 ---
 id: templates/sql/oracle/210-dynamic_sql.md
