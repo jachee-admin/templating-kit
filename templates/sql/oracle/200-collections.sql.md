@@ -20,31 +20,35 @@ Drop-in examples for every collection flavor and high-throughput bulk processing
 
 ```sql
 DECLARE
-  -- Integer-keyed map
-  TYPE t_int_map IS TABLE OF VARCHAR2(200) INDEX BY PLS_INTEGER;
-  v_int t_int_map;
+    -- Integer-keyed map
+    TYPE t_int_map IS TABLE OF VARCHAR2(200) INDEX BY PLS_INTEGER;
+    v_int t_int_map;
 
-  -- String-keyed map (e.g., email → id)
-  TYPE t_str_map IS TABLE OF NUMBER INDEX BY VARCHAR2(320);
-  v_id_by_email t_str_map;
+    -- String-keyed map (e.g., email → id)
+    TYPE t_str_map IS TABLE OF NUMBER INDEX BY VARCHAR2(320);
+    v_id_by_email t_str_map;
 
-  k  PLS_INTEGER;
+    k  PLS_INTEGER;
 BEGIN
-  -- Put/exists/delete
-  v_int(10) := 'ten';
-  IF v_int.EXISTS(10) THEN v_int.DELETE(10); END IF;
+    -- Put/exists/delete
+    v_int(10) := 'ten';
+    IF v_int.EXISTS(10) THEN 
+        v_int.DELETE(10); 
+    END IF;
 
-  v_id_by_email('ada@nc.gov') := 1001;
-  v_id_by_email('grace@nc.gov') := 1002;
+    v_id_by_email('ada@nc.gov') := 1001;
+    v_id_by_email('grace@nc.gov') := 1002;
 
-  -- Sparse traversal with FIRST/NEXT
-  DECLARE c VARCHAR2(320); BEGIN
-    c := v_id_by_email.FIRST;
-    WHILE c IS NOT NULL LOOP
-      DBMS_OUTPUT.PUT_LINE(c||' -> '||v_id_by_email(c));
-      c := v_id_by_email.NEXT(c);
-    END LOOP;
-  END;
+    -- Sparse traversal with FIRST/NEXT
+    DECLARE 
+        c VARCHAR2(320);
+    BEGIN
+        c := v_id_by_email.FIRST;
+        WHILE c IS NOT NULL LOOP
+            DBMS_OUTPUT.PUT_LINE(c||' -> '||v_id_by_email(c));
+            c := v_id_by_email.NEXT(c);
+        END LOOP;
+    END;
 END;
 /
 ```
@@ -57,25 +61,32 @@ END;
 
 ```sql
 -- SQL types (schema objects) so you can use TABLE(...) in SQL
-CREATE OR REPLACE TYPE t_email_tab AS TABLE OF VARCHAR2(320);
+CREATE OR REPLACE TYPE t_email_tab AS
+    TABLE OF VARCHAR2(320);
 /
 
 -- PL/SQL: construct, de-dup via MULTISET, pass into SQL
 DECLARE
-  v_emails t_email_tab := t_email_tab('a@x','b@x','a@x'); -- duplicates allowed
-  v_unique t_email_tab;
+    v_emails t_email_tab := t_email_tab(
+        'a@x',
+        'b@x',
+        'a@x'
+    ); -- duplicates allowed
+    v_unique t_email_tab;
 BEGIN
   -- Remove dups (multiset semantics)
-  v_unique := SET(v_emails); -- or v_emails MULTISET UNION DISTINCT t_email_tab();
+    v_unique := set(v_emails); -- or v_emails MULTISET UNION DISTINCT t_email_tab();
 
   -- Query with TABLE() – e.g., join to accounts
-  FOR r IN (
-    SELECT a.account_id, a.email
-    FROM   accounts a
-    JOIN   TABLE(v_unique) e ON e.COLUMN_VALUE = a.email
-  ) LOOP
-    NULL;
-  END LOOP;
+    FOR r IN (
+        SELECT a.account_id,
+               a.email
+          FROM accounts a
+          JOIN TABLE ( v_unique ) e
+        ON e.column_value = a.email
+    ) LOOP
+        NULL;
+    END LOOP;
 END;
 /
 ```
@@ -91,15 +102,18 @@ CREATE OR REPLACE TYPE t_code_arr AS VARRAY(10) OF VARCHAR2(20);
 /
 
 DECLARE
-  v_codes t_code_arr := t_code_arr('A','B','C');
+    v_codes t_code_arr := t_code_arr('A', 'B', 'C');
 BEGIN
-  v_codes.EXTEND; v_codes(v_codes.COUNT) := 'D';
+    v_codes.extend;
+    v_codes(v_codes.count) := 'D';
   -- Use in SQL
-  FOR r IN (
-    SELECT COLUMN_VALUE AS code
-    FROM   TABLE(v_codes)
-    ORDER  BY 1
-  ) LOOP NULL; END LOOP;
+    FOR r IN (
+        SELECT column_value AS code
+          FROM TABLE ( v_codes )
+         ORDER BY 1
+    ) LOOP
+        NULL;
+    END LOOP;
 END;
 /
 ```
@@ -114,14 +128,16 @@ END;
 
 ```sql
 DECLARE
-  TYPE t_id_tab IS TABLE OF accounts.account_id%TYPE;
-  v_ids t_id_tab;
+    TYPE t_id_tab IS TABLE OF accounts.account_id%TYPE;
+    v_ids t_id_tab;
 BEGIN
-  SELECT account_id BULK COLLECT INTO v_ids
-  FROM   accounts
-  WHERE  created_at >= SYSDATE - 7;
+    SELECT account_id
+    BULK COLLECT
+      INTO v_ids
+      FROM accounts
+     WHERE created_at >= sysdate - 7;
 
-  DBMS_OUTPUT.PUT_LINE('#ids='||v_ids.COUNT);
+    dbms_output.put_line('#ids=' || v_ids.count);
 END;
 /
 ```
@@ -130,22 +146,25 @@ END;
 
 ```sql
 DECLARE
-  CURSOR c IS SELECT account_id, email FROM accounts ORDER BY account_id;
-  TYPE t_row_tab IS TABLE OF c%ROWTYPE;
-  v_rows t_row_tab;
+    CURSOR c IS
+    SELECT account_id,
+           email
+      FROM accounts
+     ORDER BY account_id;
+    TYPE t_row_tab IS TABLE OF c%rowtype;
+    v_rows t_row_tab;
 BEGIN
-  OPEN c;
-  LOOP
-    FETCH c BULK COLLECT INTO v_rows LIMIT 500; -- tune batch size
-    EXIT WHEN v_rows.COUNT = 0;
-
-    FOR i IN 1..v_rows.COUNT LOOP
-      NULL; -- process v_rows(i).account_id, v_rows(i).email
+    OPEN c;
+    LOOP
+        FETCH c
+        BULK COLLECT INTO v_rows LIMIT 500; -- tune batch size
+        EXIT WHEN v_rows.count = 0;
+        FOR i IN 1..v_rows.count LOOP
+            NULL; -- process v_rows(i).account_id, v_rows(i).email
+        END LOOP;
+        COMMIT; -- optional batch boundary
     END LOOP;
-
-    COMMIT; -- optional batch boundary
-  END LOOP;
-  CLOSE c;
+    CLOSE c;
 END;
 /
 ```
@@ -160,17 +179,22 @@ END;
 
 ```sql
 DECLARE
-  TYPE t_id_tab IS TABLE OF orders.order_id%TYPE;
-  v_ids t_id_tab := t_id_tab(101,102,103,104);
-
+    TYPE t_id_tab IS
+        TABLE OF orders.order_id%TYPE;
+    v_ids t_id_tab := t_id_tab(
+        101,
+        102,
+        103,
+        104
+    );
 BEGIN
-  FORALL i IN v_ids.FIRST .. v_ids.LAST
-    UPDATE orders
-    SET    processed   = 'Y',
-           processed_at = SYSTIMESTAMP
-    WHERE  order_id = v_ids(i);
+    FORALL i IN v_ids.first..v_ids.last
+        UPDATE orders
+           SET processed = 'Y',
+               processed_at = systimestamp
+         WHERE order_id = v_ids(i);
 
-  COMMIT;
+    COMMIT;
 END;
 /
 ```
@@ -179,27 +203,39 @@ END;
 
 ```sql
 DECLARE
-  TYPE t_num IS TABLE OF NUMBER;
-  TYPE t_vc  IS TABLE OF VARCHAR2(320);
-
-  v_acct_id t_num := t_num(1001,1002,1003);
-  v_email   t_vc  := t_vc ('a@x','b@x','a@x'); -- unique constraint may trip
-
+    TYPE t_num IS
+        TABLE OF NUMBER;
+    TYPE t_vc IS
+        TABLE OF VARCHAR2(320);
+    v_acct_id t_num := t_num(
+        1001,
+        1002,
+        1003
+    );
+    v_email   t_vc := t_vc(
+        'a@x',
+        'b@x',
+        'a@x'
+    ); -- unique constraint may trip
 BEGIN
-  BEGIN
-    FORALL i IN 1 .. v_acct_id.COUNT SAVE EXCEPTIONS
-      INSERT INTO accounts(account_id, email) VALUES (v_acct_id(i), v_email(i));
-  EXCEPTION
-    WHEN OTHERS THEN
-      FOR j IN 1 .. SQL%BULK_EXCEPTIONS.COUNT LOOP
-        DBMS_OUTPUT.PUT_LINE(
-          'i='||SQL%BULK_EXCEPTIONS(j).ERROR_INDEX||
-          ' code='||SQL%BULK_EXCEPTIONS(j).ERROR_CODE||
-          ' '||SQLERRM(-SQL%BULK_EXCEPTIONS(j).ERROR_CODE));
-      END LOOP;
-  END;
-
-  COMMIT;
+    BEGIN
+        FORALL i IN 1..v_acct_id.count SAVE EXCEPTIONS
+            INSERT INTO accounts (
+                account_id,
+                email
+            ) VALUES ( v_acct_id(i),
+                       v_email(i) );
+    EXCEPTION
+        WHEN OTHERS THEN
+            FOR j IN 1..SQL%bulk_exceptions.count LOOP
+                dbms_output.put_line('i='
+                                     || SQL%bulk_exceptions(j).error_index
+                                     || ' code='
+                                     || SQL%bulk_exceptions(j).error_code
+                                     || ' ' || sqlerrm(-SQL%bulk_exceptions(j).error_code));
+            END LOOP;
+    END;
+    COMMIT;
 END;
 /
 ```
@@ -208,16 +244,18 @@ END;
 
 ```sql
 DECLARE
-  TYPE t_id_tab IS TABLE OF NUMBER INDEX BY PLS_INTEGER; -- associative (sparse)
-  v_ids t_id_tab;
+    TYPE t_id_tab IS
+        TABLE OF NUMBER INDEX BY PLS_INTEGER; -- associative (sparse)
+    v_ids t_id_tab;
 BEGIN
-  v_ids(10) := 1001;
-  v_ids(40) := 1002; -- holes in between
+    v_ids(10) := 1001;
+    v_ids(40) := 1002; -- holes in between
 
-  FORALL i IN INDICES OF v_ids
-    DELETE FROM orders WHERE order_id = v_ids(i);
+    FORALL i IN INDICES OF v_ids
+        DELETE FROM orders
+         WHERE order_id = v_ids(i);
 
-  COMMIT;
+    COMMIT;
 END;
 /
 ```
@@ -226,19 +264,25 @@ END;
 
 ```sql
 DECLARE
-  TYPE t_index_tab IS TABLE OF PLS_INTEGER;  -- driver indexes
-  TYPE t_id_tab    IS TABLE OF NUMBER INDEX BY PLS_INTEGER;
-
-  v_ids t_id_tab;
-  v_ix  t_index_tab := t_index_tab(10,40);   -- which indexes to use
+    TYPE t_index_tab IS
+        TABLE OF PLS_INTEGER;  -- driver indexes
+    TYPE t_id_tab IS
+        TABLE OF NUMBER INDEX BY PLS_INTEGER;
+    v_ids t_id_tab;
+    v_ix  t_index_tab := t_index_tab(
+        10,
+        40
+    );   -- which indexes to use
 BEGIN
-  v_ids(10) := 1001;
-  v_ids(40) := 1002;
+    v_ids(10) := 1001;
+    v_ids(40) := 1002;
+    FORALL i IN VALUES OF v_ix
+        UPDATE orders
+           SET
+            processed = 'Y'
+         WHERE order_id = v_ids(i);
 
-  FORALL i IN VALUES OF v_ix
-    UPDATE orders SET processed='Y' WHERE order_id = v_ids(i);
-
-  COMMIT;
+    COMMIT;
 END;
 /
 ```
@@ -249,18 +293,19 @@ END;
 
 ```sql
 DECLARE
-  TYPE t_ord_id IS TABLE OF orders.order_id%TYPE;
-  v_new_ids t_ord_id;
+    TYPE t_ord_id IS 
+        TABLE OF orders.order_id%TYPE;
+    v_new_ids t_ord_id;
 BEGIN
-  INSERT INTO orders(account_id, total_cents)
-  SELECT a.account_id, 12345
-  FROM   accounts a
-  WHERE  a.email LIKE 'a%'
-  RETURNING order_id BULK COLLECT INTO v_new_ids;
+    INSERT INTO orders(account_id, total_cents)
+    SELECT a.account_id, 12345
+    FROM   accounts a
+    WHERE  a.email LIKE 'a%'
+    RETURNING order_id BULK COLLECT INTO v_new_ids;
 
-  DBMS_OUTPUT.PUT_LINE('#inserted='||v_new_ids.COUNT);
+    DBMS_OUTPUT.PUT_LINE('#inserted='||v_new_ids.COUNT);
 END;
-/
+/ 
 ```
 
 ---
@@ -269,22 +314,35 @@ END;
 
 ```sql
 -- Object + collection types (SQL-visible)
-CREATE OR REPLACE TYPE t_pair AS OBJECT (k NUMBER, v VARCHAR2(100));
+CREATE OR REPLACE TYPE t_pair AS OBJECT (
+    k NUMBER,
+    v VARCHAR2(100)
+);
 /
-CREATE OR REPLACE TYPE t_pair_tab AS TABLE OF t_pair;
+CREATE OR REPLACE TYPE t_pair_tab AS
+    TABLE OF t_pair;
 /
 
 DECLARE
-  v_pairs t_pair_tab := t_pair_tab(t_pair(1,'a'), t_pair(2,'b'));
+    v_pairs t_pair_tab := t_pair_tab(
+        t_pair(1,'a'),
+        t_pair(2,'b')
+    );
 BEGIN
   -- Consume in SQL
-  INSERT INTO some_table(pk, val)
-  SELECT p.k, p.v FROM TABLE(v_pairs) p;
+    INSERT INTO some_table (pk,val)
+    SELECT p.k,
+           p.v
+      FROM TABLE ( v_pairs ) p;
 
   -- Back to PL/SQL iteration
-  FOR r IN (SELECT * FROM TABLE(v_pairs) ORDER BY k) LOOP
-    NULL;
-  END LOOP;
+    FOR r IN (
+        SELECT *
+          FROM TABLE ( v_pairs )
+         ORDER BY k
+    ) LOOP
+        NULL;
+    END LOOP;
 END;
 /
 ```
@@ -295,20 +353,20 @@ END;
 
 ```sql
 DECLARE
-  a t_email_tab := t_email_tab('a@x','b@x','c@x');
-  b t_email_tab := t_email_tab('b@x','d@x');
-
-  inter   t_email_tab;
-  only_a  t_email_tab;
-  union_d t_email_tab;
+    a       t_email_tab := t_email_tab('a@x','b@x','c@x');
+    b       t_email_tab := t_email_tab('b@x','d@x');
+    inter   t_email_tab;
+    only_a  t_email_tab;
+    union_d t_email_tab;
 BEGIN
-  inter   := a MULTISET INTERSECT DISTINCT b;  -- {'b@x'}
-  only_a  := a MULTISET EXCEPT DISTINCT b;     -- {'a@x','c@x'}
-  union_d := a MULTISET UNION DISTINCT b;      -- {'a@x','b@x','c@x','d@x'}
+    inter := a MULTISET INTERSECT DISTINCT b;  -- {'b@x'}
+    only_a := a MULTISET EXCEPT DISTINCT b;     -- {'a@x','c@x'}
+    union_d := a MULTISET UNION DISTINCT b;      -- {'a@x','b@x','c@x','d@x'}
 
-  IF b SUBMULTISET OF union_d THEN NULL; END IF;
-
-  DBMS_OUTPUT.PUT_LINE('|a|='||CARDINALITY(a));
+    IF b SUBMULTISET OF union_d THEN
+        NULL;
+    END IF;
+    dbms_output.put_line('|a|=' || cardinality(a));
 END;
 /
 ```
@@ -331,39 +389,57 @@ END;
 ## 10) End-to-end: scan → transform → upsert at scale
 
 ```sql
-DECLARE
-  CURSOR c IS
-    SELECT account_id, SUM(total_cents) AS cents
-    FROM   orders
-    WHERE  created_at >= SYSDATE - 30
-    GROUP  BY account_id;
+ DECLARE
+    CURSOR c IS
+    SELECT account_id,
+           SUM(total_cents) AS cents
+      FROM orders
+     WHERE created_at >= sysdate - 30
+     GROUP BY account_id;
 
-  TYPE t_acc   IS TABLE OF NUMBER;
-  TYPE t_cents IS TABLE OF NUMBER;
-
-  v_acc   t_acc;
-  v_cents t_cents;
+    TYPE t_acc IS
+        TABLE OF NUMBER;
+    TYPE t_cents IS
+        TABLE OF NUMBER;
+    v_acc   t_acc;
+    v_cents t_cents;
 BEGIN
   -- Bulk fetch in chunks
-  OPEN c;
-  LOOP
-    FETCH c BULK COLLECT INTO v_acc, v_cents LIMIT 1000;
-    EXIT WHEN v_acc.COUNT = 0;
+    OPEN c;
+    LOOP
+        FETCH c
+        BULK COLLECT INTO
+            v_acc,
+            v_cents
+        LIMIT 1000;
+        EXIT WHEN v_acc.count = 0;
 
     -- Upsert with FORALL (parallel scalar arrays)
-    FORALL i IN 1 .. v_acc.COUNT
-      MERGE INTO monthly_spend d
-      USING (SELECT v_acc(i) AS account_id, v_cents(i) AS cents FROM dual) s
-      ON (d.account_id = s.account_id AND d.month_key = TRUNC(SYSDATE,'MM'))
-      WHEN MATCHED THEN
-        UPDATE SET d.cents = s.cents
-      WHEN NOT MATCHED THEN
-        INSERT (account_id, month_key, cents)
-        VALUES (s.account_id, TRUNC(SYSDATE,'MM'), s.cents);
-
-    COMMIT;
-  END LOOP;
-  CLOSE c;
+        FORALL i IN 1..v_acc.count
+            MERGE INTO monthly_spend d
+            USING (
+                SELECT v_acc(i) AS account_id,
+                       v_cents(i) AS cents
+                  FROM dual
+            ) s ON ( d.account_id = s.account_id
+                 AND d.month_key = trunc(sysdate,'MM') )
+            WHEN MATCHED THEN 
+                UPDATE SET d.cents = s.cents
+            WHEN NOT MATCHED THEN
+                INSERT (
+                    account_id,
+                    month_key,
+                    cents )
+                VALUES
+                    ( s.account_id,
+                    trunc(
+                        sysdate,
+                        'MM'
+                    ),
+                    s.cents );
+        COMMIT;
+    END LOOP;
+    CLOSE c;
 END;
 /
 ```
