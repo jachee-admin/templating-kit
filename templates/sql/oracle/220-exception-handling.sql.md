@@ -1,10 +1,13 @@
 ###### Oracle PL/SQL
+
 ### PL/SQL Exception Handling — the kitchen sink (Oracle 19c)
+
 Use these patterns as snap-ins. Prefer small try/handle scopes, preserve the stack, and log with context.
 
 ---
 
 ## 1) Basics — `EXCEPTION` block, common predefined exceptions
+
 ```sql
 DECLARE
   v_num NUMBER := 0;
@@ -21,7 +24,7 @@ EXCEPTION
     DBMS_OUTPUT.PUT_LINE('Unexpected: '||SQLERRM||' (code='||SQLCODE||')');
 END;
 /
-````
+```
 
 ---
 
@@ -360,7 +363,8 @@ BEGIN IF p_val IS NULL THEN RAISE_APPLICATION_ERROR(-20500, p_name||' is require
 
 ```sql
 DECLARE
-  e_deadlock EXCEPTION; PRAGMA EXCEPTION_INIT(e_deadlock, -60);
+  e_deadlock EXCEPTION; 
+  PRAGMA EXCEPTION_INIT(e_deadlock, -60);
 BEGIN
   NULL; -- risky section
 EXCEPTION

@@ -1,5 +1,7 @@
 ###### Oracle PL/SQL
+
 ### Collections + BULK COLLECT & FORALL — comprehensive patterns (19c)
+
 Drop-in examples for every collection flavor and high-throughput bulk processing. Use `BULK COLLECT` to cut context switches on fetch; use `FORALL` for set DML.
 
 ---
@@ -45,7 +47,7 @@ BEGIN
   END;
 END;
 /
-````
+```
 
 **API reminders**: `EXISTS(k)`, `COUNT`, `FIRST/LAST`, `PRIOR/NEXT`, `DELETE`, `DELETE(k)`, `DELETE(m,n)`.
 
@@ -365,7 +367,6 @@ BEGIN
 END;
 /
 ```
-
 
 ```yaml
 ---
