@@ -17,7 +17,11 @@ Handle text safely, avoid memory face-plants, and don’t corrupt files when edi
 
 ```perl
 #!/usr/bin/env perl
-use v5.36; use strict; use warnings; use utf8; use open qw(:std :encoding(UTF-8));
+use v5.34; 
+use strict; 
+use warnings; 
+use utf8; 
+use open qw(:std :encoding(UTF-8));
 
 # --- Streaming read ------------------------------------------------------------
 sub stream_file ($path, $cb) {
@@ -90,4 +94,3 @@ tags: [perl, utf8, file-io, streaming, slurp, path-tiny]
 description: "UTF-8 defaults, streaming pattern, bounded slurp, and safe in-place edits."
 ---
 ```
-

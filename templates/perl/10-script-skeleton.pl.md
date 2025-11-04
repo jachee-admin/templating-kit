@@ -6,7 +6,11 @@ Baseline scaffold for robust Perl CLIs: strictness, UTF-8-safe I/O, structured l
 
 ## TL;DR
 
-* `use v5.36; use strict; use warnings; use utf8; use open qw(:std :encoding(UTF-8));`
+* `use v5.36;`
+* `use strict;`
+* `use warnings;`
+* `use utf8;`
+* `use open qw(:std :encoding(UTF-8));`
 * `Getopt::Long` + `Pod::Usage` for flags/help; stackable `--verbose`
 * Structured `log_*` with ISO timestamps and caller line/function
 * `Try::Tiny` around `main()` for clean error surfaces
@@ -17,9 +21,9 @@ Baseline scaffold for robust Perl CLIs: strictness, UTF-8-safe I/O, structured l
 ## Script
 
 ```perl
-#!/usr/bin/env perl
+#!#!/usr/bin/env perl
 # strict-skeleton.pl — reusable strict-mode scaffold for Perl
-use v5.36;
+use v5.34;
 use strict;
 use warnings;
 use utf8;
@@ -30,6 +34,7 @@ no warnings 'experimental::signatures';
 use Getopt::Long qw(:config no_ignore_case bundling);
 use Pod::Usage;
 use Time::HiRes qw(time);
+use POSIX qw(strftime);
 use Try::Tiny;
 
 # --- Defaults -----------------------------------------------------------------
@@ -38,27 +43,69 @@ my %opt = (
     dryrun  => 0,
 );
 
-# --- Logging ------------------------------------------------------------------
-sub _ts    { scalar gmtime() =~ s/ /T/r . 'Z' }                       # poor-man's RFC3339 UTC
-sub _lno   { (caller(1))[2] // 0 }
-sub _func  { (caller(1))[3] // 'main' }
+# Ensure logs flush promptly
+select STDERR; $| = 1; select STDOUT; $| = 1;
+
+# --- Time & logging helpers ---------------------------------------------------
+sub _ts () {
+    # RFC3339 / ISO-8601 in UTC
+    return strftime('%Y-%m-%dT%H:%M:%SZ', gmtime());
+}
+
+# shell-quote purely for display (does NOT affect how we exec)
+sub _q ($s) {
+    # Single-quote style: 'foo' -> 'foo', foo bar -> 'foo bar'
+    # Also handle embedded single quotes: abc'def -> 'abc'"'"'def'
+    return "''" if $s eq '';
+    $s =~ s/'/'"'"'/g;
+    return "'$s'";
+}
 
 sub _log ($level, $msg) {
-    printf STDERR "%s %-5s pid=%d line=%d fn=%s %s\n",
-        _ts(), $level, $$, _lno(), _func(), $msg;
+    my (undef, $file, $line, $sub) = caller(2);  # <-- two levels up
+    $sub =~ s/^.*::// if defined $sub;
+    printf STDERR "%s %-5s pid=%d file=%s line=%d fn=%s %s\n",
+        _ts(), $level, $$, ($file // '?'), ($line // 0), ($sub // 'main'), $msg;
 }
-sub log_debug ($msg){ $opt{verbose} > 0 and _log('DEBUG', $msg) }
-sub log_info  ($msg){ _log('INFO',  $msg) }
-sub log_warn  ($msg){ _log('WARN',  $msg) }
-sub log_error ($msg){ _log('ERROR', $msg) }
 
-# --- Dry-run helper ------------------------------------------------------------
+
+# sub _log ($level, $msg, $file, $line, $sub) {
+#     # Normalized sub name: main::foo -> foo
+#     $sub //= 'main';
+#     $sub =~ s/^.*:://;
+#     printf STDERR "%s %-5s pid=%d file=%s line=%d fn=%s %s\n",
+#         _ts(), $level, $$, ($file // '?'), ($line // 0), $sub, $msg;
+# }
+
+sub log_debug ($msg) {
+    return unless $opt{verbose};
+    my (undef, $file, $line, $sub) = caller;
+    _log('DEBUG', $msg);
+}
+sub log_info ($msg)  { my (undef,$f,$l,$s)=caller; _log('INFO',  $msg) }
+sub log_warn ($msg)  { my (undef,$f,$l,$s)=caller; _log('WARN',  $msg) }
+sub log_error($msg)  { my (undef,$f,$l,$s)=caller; _log('ERROR', $msg) }
+
+# --- Dry-run + command execution ----------------------------------------------
 sub run (@cmd) {
-    my $shown = join ' ', map { quotemeta $_ } @cmd;
+    my $shown = join ' ', map { _q($_) } @cmd;
     log_info("+ $shown");
-    return 1 if $opt{dryrun};
+
+    if ($opt{dryrun}) {
+        log_debug("dry-run: skipping exec");
+        return 1;
+    }
+
     system @cmd;
-    my $rc = $? >> 8;
+    my $status = $?;
+    if ($status == -1) {
+        die "failed to execute: $shown: $!";
+    }
+    if ($status & 127) {
+        my $sig = ($status & 127);
+        die sprintf "command died with signal %d: %s", $sig, $shown;
+    }
+    my $rc = $status >> 8;
     $rc == 0 or die "command failed rc=$rc: $shown";
     return 1;
 }
@@ -92,7 +139,8 @@ sub main() {
 my $exit = 0;
 try   { $exit = main() }
 catch {
-    my $err = $_; $err =~ s/\s+\z//;
+    my $err = $_ // 'unknown';
+    $err =~ s/\s+\z//;
     log_error("Unhandled: $err");
     $exit = 1;
 };
@@ -107,7 +155,8 @@ strict-skeleton.pl - strict, UTF-8, logging, dry-run scaffold
 strict-skeleton.pl [-n|--dry-run] [-v|--verbose] -i FILE -o FILE
 
 =head1 DESCRIPTION
-Starter skeleton for disciplined Perl CLIs with safe defaults and better logs.
+Starter skeleton for disciplined Perl CLIs with safe defaults and better logging.
+
 ```
 
 ---
