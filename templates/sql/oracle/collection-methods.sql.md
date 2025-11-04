@@ -6,34 +6,37 @@ All PL/SQL collections (associative arrays, nested tables, varrays) support some
 
 Here’s the breakdown:
 
-| **Method**   | **Associative Array** | **Nested Table** | **Varray** |
-|--------------|------------------------|------------------|------------|
-| `.COUNT`     | ✅ Yes | ✅ Yes | ✅ Yes |
-| `.DELETE`    | ✅ Yes (delete elements or whole collection) | ✅ Yes (delete elements or whole collection) | ❌ No |
-| `.EXISTS(n)` | ✅ Yes | ✅ Yes | ✅ Yes |
-| `.FIRST`     | ✅ Yes | ✅ Yes | ✅ Yes |
-| `.LAST`      | ✅ Yes | ✅ Yes | ✅ Yes |
-| `.NEXT(n)`   | ✅ Yes | ✅ Yes | ✅ Yes |
-| `.PRIOR(n)`  | ✅ Yes | ✅ Yes | ✅ Yes |
-| `.TRIM`      | ❌ No | ✅ Yes | ✅ Yes |
-| `.EXTEND`    | ❌ No | ✅ Yes | ✅ Yes |
-| `.LIMIT`     | ❌ No | ❌ No | ✅ Yes (returns max size of varray) |
+| **Method**   | **Associative Array**                       | **Nested Table**                            | **Varray**                         |
+| ------------ | ------------------------------------------- | ------------------------------------------- | ---------------------------------- |
+| `.COUNT`     | ✅ Yes                                       | ✅ Yes                                       | ✅ Yes                              |
+| `.DELETE`    | ✅ Yes (delete elements or whole collection) | ✅ Yes (delete elements or whole collection) | ❌ No                               |
+| `.EXISTS(n)` | ✅ Yes                                       | ✅ Yes                                       | ✅ Yes                              |
+| `.FIRST`     | ✅ Yes                                       | ✅ Yes                                       | ✅ Yes                              |
+| `.LAST`      | ✅ Yes                                       | ✅ Yes                                       | ✅ Yes                              |
+| `.NEXT(n)`   | ✅ Yes                                       | ✅ Yes                                       | ✅ Yes                              |
+| `.PRIOR(n)`  | ✅ Yes                                       | ✅ Yes                                       | ✅ Yes                              |
+| `.TRIM`      | ❌ No                                        | ✅ Yes                                       | ✅ Yes                              |
+| `.EXTEND`    | ❌ No                                        | ✅ Yes                                       | ✅ Yes                              |
+| `.LIMIT`     | ❌ No                                        | ❌ No                                        | ✅ Yes (returns max size of varray) |
 
 ---
 
 ## ✅ Usage Notes
 
 - **Associative arrays**
+  
   - Unbounded, sparse.
   - Support navigation methods (`FIRST`, `LAST`, `NEXT`, `PRIOR`) and deletion of arbitrary elements.
   - No `.TRIM` or `.EXTEND` because they grow/shrink automatically by assignment.
 
 - **Nested tables**
+  
   - Start dense but can become sparse after `.DELETE`.
   - Support `.TRIM` and `.EXTEND` to manage size.
   - Can be stored in database columns.
 
 - **Varrays**
+  
   - Always dense and bounded.
   - Support `.TRIM` and `.EXTEND` but within their declared maximum size.
   - `.LIMIT` is unique to varrays, returning the declared upper bound.
@@ -63,6 +66,7 @@ END;
 ---
 
 ## 📌 Key Takeaway
+
 - **Common methods**: `.COUNT`, `.EXISTS`, `.FIRST`, `.LAST`, `.NEXT`, `.PRIOR` work on all collections.
 - **Growth/shrink methods**: `.EXTEND` and `.TRIM` only for nested tables and varrays.
 - **Special case**: `.LIMIT` only for varrays.
