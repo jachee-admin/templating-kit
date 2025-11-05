@@ -13,7 +13,7 @@ Your company wants to model customers, their accounts, and transactions directly
 ### 🔎 Requirements
 
 1. **Define Object Types**
-   
+
    - `person_obj` (base type): attributes `first_name`, `last_name`, `dob`, and a `display` method.
    - `customer_obj` (subtype of `person_obj`): adds `cust_id`, `email`, and a nested table of `account_obj`.
    - `account_obj`: attributes `acct_no`, `balance`, `acct_type`, with methods:
@@ -23,21 +23,24 @@ Your company wants to model customers, their accounts, and transactions directly
    - `transaction_obj`: attributes `txn_id`, `txn_date`, `amount`, `txn_type`.
 
 2. **Use Inheritance & Polymorphism**
-   
+
    - `employee_obj` should inherit from `person_obj` and override `display` to show employee role.
 
 3. **Nested Collections**
-   
+
+   - `employee_obj` should inherit from `person_obj` and override `display` to show employee role.
+
+3. **Nested Collections**
    - `customer_obj` contains a nested table of `account_obj`.
    - `account_obj` contains a nested table of `transaction_obj`.
 
 4. **Object Tables**
-   
+
    - Create an object table `customers` of type `customer_obj`.
    - Store multiple customers, each with their own accounts and transactions.
 
 5. **Methods in Action**
-   
+
    - Write a PL/SQL block that:
      - Creates a new `customer_obj` with two accounts.
      - Calls `deposit` and `withdraw` methods.
@@ -45,9 +48,10 @@ Your company wants to model customers, their accounts, and transactions directly
      - Queries back the customer and unnests accounts/transactions with `TABLE()`.
 
 6. **Bonus: Pipelined Function**
-   
+
    - Write a pipelined function `get_all_transactions` that returns all transactions across all customers as rows, so you can query:
-     
+
+   - Write a pipelined function `get_all_transactions` that returns all transactions across all customers as rows, so you can query:
      ```sql
      SELECT * FROM TABLE(get_all_transactions());
      ```
@@ -104,7 +108,6 @@ CREATE TYPE account_obj AS OBJECT (
 ## ⚡ Why This Matters
 
 This assignment mimics **real business domains** (banking, insurance, telecom) where:
-
 - Customers have multiple accounts/policies/contracts.
 - Accounts have transactions/events.
 - Employees and customers share attributes but differ in behavior.
@@ -114,4 +117,3 @@ It forces you to use **object‑oriented PL/SQL** to model entities, relationshi
 
 ---
 
-👉 I can expand this into a **step‑by‑step lab** (with full code for each type, body, and test block) so you can run it end‑to‑end. Do you want me to flesh out the **full banking example with working code**
