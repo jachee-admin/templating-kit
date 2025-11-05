@@ -1,4 +1,0 @@
-BEGIN
-    null;
-END;
-
