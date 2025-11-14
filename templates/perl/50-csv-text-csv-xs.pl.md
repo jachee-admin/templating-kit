@@ -18,7 +18,11 @@ Battle-tested CSV handling with `Text::CSV_XS`: safe parsing, header mapping, TS
 
 ```perl
 #!/usr/bin/env perl
-use v5.36; use strict; use warnings; use utf8; use open qw(:std :encoding(UTF-8));
+use v5.36; 
+use strict; 
+use warnings; 
+use utf8; 
+use open qw(:std :encoding(UTF-8));
 use Text::CSV_XS;          # cpanm Text::CSV_XS
 
 # --- Create a CSV parser -------------------------------------------------------
@@ -41,7 +45,8 @@ sub read_csv_with_header ($path, $cb) {
     # my %norm = map { (lc($_) =~ s/\W+/_/gr) => $ix{$_} } keys %ix; %ix = %norm;
 
     while (my $row = $csv->getline($fh)) {
-        my %h; @h{@$hdr} = @$row;     # array -> hash by header
+        my %h; 
+        @h{@$hdr} = @$row;     # array -> hash by header
         $cb->(\%h, \%ix);
     }
     close $fh or die "close $path: $!";

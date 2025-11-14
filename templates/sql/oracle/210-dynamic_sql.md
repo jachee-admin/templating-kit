@@ -1,5 +1,7 @@
 ###### Oracle PL/SQL
+
 ### Dynamic SQL — EXECUTE IMMEDIATE vs DBMS_SQL (Oracle 19c)
+
 Practical patterns with secure, bind-first code. Use EXECUTE IMMEDIATE for 90% of cases; drop to DBMS_SQL for truly dynamic column counts/shapes.
 
 ---
@@ -7,6 +9,7 @@ Practical patterns with secure, bind-first code. Use EXECUTE IMMEDIATE for 90% o
 ## 1) EXECUTE IMMEDIATE — bread-and-butter patterns
 
 ### 1.1) Dynamic DDL (schema and object names whitelisted)
+
 ```sql
 DECLARE
   p_owner  VARCHAR2(30) := 'APP';
@@ -23,7 +26,7 @@ BEGIN
   EXECUTE IMMEDIATE p_stmt;
 END;
 /
-````
+```
 
 ### 1.2) Dynamic DML with binds (IN / OUT / IN OUT) + RETURNING
 
@@ -183,11 +186,15 @@ END;
 ## 3) Security — prevent SQL injection (critical)
 
 * **Always bind values**, never concatenate user input into SQL text.
-* **Whitelist identifiers** (schema/table/column), validate with `DBMS_ASSERT`:
 
+* **Whitelist identifiers** (schema/table/column), validate with `DBMS_ASSERT`:
+  
   * `SIMPLE_SQL_NAME`, `SCHEMA_NAME`, `QUALIFIED_SQL_NAME`, `ENQUOTE_NAME`.
+
 * Avoid passing full WHERE clauses from outside; instead map **known filters** to fragments server-side.
+
 * Prefer **EXECUTE IMMEDIATE with binds**; only use DBMS_SQL when you truly must.
+
 * Log the **normalized** statement (with placeholders), not values.
 
 ---
@@ -221,11 +228,7 @@ END;
 * For performance testing, compare plans with `DBMS_XPLAN.DISPLAY_CURSOR` after running dynamic statements (use `/*+ GATHER_PLAN_STATISTICS */`).
 * Transaction semantics are unaffected: dynamic SQL runs in the caller’s transaction (unless you explicitly use an autonomous block).
 
-
-
 ---
-
-
 
 ```yaml
 ---
