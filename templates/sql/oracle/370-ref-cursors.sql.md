@@ -129,7 +129,7 @@ await rs.close();
 
 ```yaml
 ---
-id: templates/sql/oracle/370-ref-cursors.sql.md
+id: docs/sql/oracle/370-ref-cursors.sql.md
 lang: sql
 platform: oracle
 scope: plsql

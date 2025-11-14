@@ -6,7 +6,7 @@ tags: [retry, jitter, decorator]
 description: "Transient-safe retry with cap + jitter"
 ---
 
-### Module
+### Python: Module - Retry w/ Jitter
 ```python
 import random, time, functools
 

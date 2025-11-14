@@ -324,7 +324,7 @@ TO_DATE(txt, 'FXYYYY-MM-DD' DEFAULT DATE '1900-01-01' ON CONVERSION ERROR)
 ```
 ```yaml
 ---
-id: templates/sql/oracle/240-helpers-dates-times.sql.md
+id: docs/sql/oracle/240-helpers-dates-times.sql.md
 lang: sql
 platform: oracle
 scope: plsql

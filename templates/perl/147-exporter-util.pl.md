@@ -83,7 +83,7 @@ my %h = (a=>1,b=>2); my @pairs = kv(%h);
 
 ```yaml
 ---
-id: templates/perl/147-exporter-util.pl.md
+id: docs/perl/147-exporter-util.pl.md
 lang: perl
 platform: posix
 scope: modules

@@ -214,7 +214,7 @@ Keeps stdout as data; compatible with pipelines or `journald`.
 
 ```yaml
 ---
-id: templates/bash/40-functions-args-traps-cleanup.sh.md
+id: docs/bash/40-functions-args-traps-cleanup.sh.md
 lang: bash
 platform: posix
 scope: scripting

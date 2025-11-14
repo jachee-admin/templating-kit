@@ -149,7 +149,7 @@ end;
 
 ```yaml
 ---
-id: templates/apex/70-csv-import-apex-file-browse.md
+id: docs/apex/70-csv-import-apex-file-browse.md
 lang: plsql
 platform: apex
 scope: data-load

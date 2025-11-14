@@ -203,7 +203,7 @@ diff -u \
 
 ```yaml
 ---
-id: templates/bash/200-incident-tooling.sh.md
+id: docs/bash/200-incident-tooling.sh.md
 lang: bash
 platform: posix
 scope: incident

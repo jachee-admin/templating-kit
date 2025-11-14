@@ -219,7 +219,7 @@ Place these stubs **inside the test script scope** so production code remains un
 
 ```yaml
 ---
-id: templates/bash/150-testing-bats-shellcheck.sh.md
+id: docs/bash/150-testing-bats-shellcheck.sh.md
 lang: bash
 platform: posix
 scope: testing

@@ -156,7 +156,7 @@ end;
 
 ```yaml
 ---
-id: templates/apex/90-apex-exec-rest-ds.apex.md
+id: docs/apex/90-apex-exec-rest-ds.apex.md
 lang: plsql
 platform: apex
 scope: integration

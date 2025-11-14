@@ -100,7 +100,7 @@ while (my $l = <STDIN>) {
 
 ```yaml
 ---
-id: templates/perl/120-streaming-transforms.pl.md
+id: docs/perl/120-streaming-transforms.pl.md
 lang: perl
 platform: posix
 scope: streaming

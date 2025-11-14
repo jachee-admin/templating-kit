@@ -93,7 +93,7 @@ END;
 
 ```yaml
 ---
-id: templates/sql/oracle/330-tables-recipes.sql.md
+id: docs/sql/oracle/330-tables-recipes.sql.md
 lang: sql
 platform: oracle
 scope: recipes and tables, info help

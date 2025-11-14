@@ -219,7 +219,7 @@ Include `LICENSE` (MIT/Apache-2.0), `COPYRIGHT`, and embed a `--version` “buil
 
 ```yaml
 ---
-id: templates/bash/160-packaging-distribution.sh.md
+id: docs/bash/160-packaging-distribution.sh.md
 lang: bash
 platform: posix
 scope: distribution

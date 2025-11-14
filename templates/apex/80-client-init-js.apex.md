@@ -133,7 +133,7 @@ apex.jQuery(document).on("apexafterrefresh", "#empReport", function () {
 
 ```yaml
 ---
-id: templates/apex/80-client-init-js.apex.md
+id: docs/apex/80-client-init-js.apex.md
 lang: javascript
 platform: apex
 scope: client

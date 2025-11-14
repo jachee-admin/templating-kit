@@ -171,7 +171,7 @@ Starter skeleton for disciplined Perl CLIs with safe defaults and better logging
 
 ```yaml
 ---
-id: templates/perl/10-script-skeleton.pl.md
+id: docs/perl/10-script-skeleton.pl.md
 lang: perl
 platform: posix
 scope: scaffolding

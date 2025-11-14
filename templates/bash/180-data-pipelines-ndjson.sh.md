@@ -206,7 +206,7 @@ main "$@"
 
 ```yaml
 ---
-id: templates/bash/180-data-pipelines-ndjson.sh.md
+id: docs/bash/180-data-pipelines-ndjson.sh.md
 lang: bash
 platform: posix
 scope: data

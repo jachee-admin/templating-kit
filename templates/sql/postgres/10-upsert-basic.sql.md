@@ -9,10 +9,10 @@ tags: [upsert, conflict, audit]
 description: "Idempotent upsert with audit columns"
 ---
 
-### Context
+### Postgres: Basic Upsert - Context
 Minimal UPSERT that preserves `created_at` and touches `updated_at`. Suitable for application‑level ids (`uuid`) or database‑generated.
 
-### Primary snippet
+### Insert/Update
 ```sql
 INSERT INTO public.accounts AS a (
   account_id,

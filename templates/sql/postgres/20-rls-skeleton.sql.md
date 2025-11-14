@@ -9,10 +9,10 @@ tags: [rls, multitenant, policies]
 description: "Enable RLS and add basic tenant policy"
 ---
 
-### Context
+### Postgres: RLS Skeleton
 Tenant isolation using a trusted session setting (`app.tenant_id`).
 
-### Primary snippet
+### RLS Snippet
 ```sql
 ALTER TABLE public.orders ENABLE ROW LEVEL SECURITY;
 

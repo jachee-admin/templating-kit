@@ -86,7 +86,7 @@ done_testing;
 
 ```yaml
 ---
-id: templates/perl/160-testing-test2.pl.md
+id: docs/perl/160-testing-test2.pl.md
 lang: perl
 platform: posix
 scope: testing

@@ -6,7 +6,7 @@ tags: [csv, json, cli]
 description: "Simple CSV→JSONL converter (streaming)"
 ---
 
-### Script
+### Python: CSV to JSON
 ```python
 import csv, json, sys
 

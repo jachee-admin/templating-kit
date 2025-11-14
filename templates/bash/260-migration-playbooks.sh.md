@@ -203,7 +203,7 @@ jq '.steps | to_entries | map({step:.key, rc:.value.rc, started:.value.started, 
 
 ```yaml
 ---
-id: templates/bash/260-migration-playbooks.sh.md
+id: docs/bash/260-migration-playbooks.sh.md
 lang: bash
 platform: posix
 scope: migration

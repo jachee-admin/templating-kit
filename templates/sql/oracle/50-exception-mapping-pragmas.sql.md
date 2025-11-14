@@ -24,7 +24,7 @@ END;
 ```
 ```yaml
 ---
-id: templates/sql/oracle/50-exception-mapping-pragmas.sql.md
+id: docs/sql/oracle/50-exception-mapping-pragmas.sql.md
 lang: sql
 platform: oracle
 scope: plsql

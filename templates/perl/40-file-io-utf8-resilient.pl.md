@@ -17,10 +17,10 @@ Handle text safely, avoid memory face-plants, and don’t corrupt files when edi
 
 ```perl
 #!/usr/bin/env perl
-use v5.34; 
-use strict; 
-use warnings; 
-use utf8; 
+use v5.34;
+use strict;
+use warnings;
+use utf8;
 use open qw(:std :encoding(UTF-8));
 
 # --- Streaming read ------------------------------------------------------------
@@ -84,7 +84,7 @@ sub inplace_edit ($path, $edit_cb) {
 
 ```yaml
 ---
-id: templates/perl/40-file-io-utf8-resilient.pl.md
+id: docs/perl/40-file-io-utf8-resilient.pl.md
 lang: perl
 platform: posix
 scope: io

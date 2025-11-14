@@ -6,6 +6,7 @@ tags: [github-actions, python, ci]
 description: "Minimal Python CI on push/PR"
 ---
 
+### Github: Actions
 ```yaml
 name: python-ci
 on: [push, pull_request]

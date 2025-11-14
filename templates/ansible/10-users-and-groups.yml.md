@@ -7,7 +7,7 @@ tags: [ansible, users, groups]
 description: "Idempotent local users and groups"
 ---
 
-### Playbook
+### Ansible: User/Groups playbook
 ```yaml
 - name: Manage local users and groups
   hosts: all

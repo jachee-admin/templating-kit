@@ -236,7 +236,7 @@ end;
 
 ```yaml
 ---
-id: templates/apex/73-csv-import-demo-app-spec.md
+id: docs/apex/73-csv-import-demo-app-spec.md
 lang: plsql
 platform: apex
 scope: app-spec

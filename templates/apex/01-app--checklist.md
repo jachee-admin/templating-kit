@@ -132,7 +132,7 @@ Record in your changelog:
 
 ```yaml
 ---
-id: templates/apex/01-app-export-checklist.md
+id: docs/apex/01-app-export-checklist.md
 lang: plsql
 platform: apex
 scope: release

@@ -79,7 +79,7 @@ perl -pe 's/.*?ERROR\K\s*//' logfile.txt
 
 ```yaml
 ---
-id: templates/perl/170-one-liners.pl.md
+id: docs/perl/170-one-liners.pl.md
 lang: perl
 platform: posix
 scope: cli

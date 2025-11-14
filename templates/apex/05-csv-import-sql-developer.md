@@ -148,7 +148,7 @@ end;
 
 ```yaml
 ---
-id: templates/apex/05-csv-import-sql-developer.md
+id: docs/apex/05-csv-import-sql-developer.md
 lang: sql
 platform: oracle
 scope: data-load

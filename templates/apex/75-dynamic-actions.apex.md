@@ -141,7 +141,7 @@ If source uses **“Page Items to Submit”**, ensure the new value is submitted
 
 ```yaml
 ---
-id: templates/apex/75-dynamic-actions.apex.md
+id: docs/apex/75-dynamic-actions.apex.md
 lang: plsql
 platform: apex
 scope: ui-reactivity

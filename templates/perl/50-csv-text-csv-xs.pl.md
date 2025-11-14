@@ -114,7 +114,7 @@ sub each_row ($path, $on_row, $on_error = undef) {
 
 ```yaml
 ---
-id: templates/perl/50-csv-text-csv-xs.pl.md
+id: docs/perl/50-csv-text-csv-xs.pl.md
 lang: perl
 platform: posix
 scope: io

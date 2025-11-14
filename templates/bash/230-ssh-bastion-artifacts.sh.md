@@ -157,7 +157,7 @@ jq -n \
 
 ```yaml
 ---
-id: templates/bash/230-ssh-bastion-artifacts.sh.md
+id: docs/bash/230-ssh-bastion-artifacts.sh.md
 lang: bash
 platform: posix
 scope: orchestration

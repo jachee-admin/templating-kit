@@ -45,7 +45,7 @@ end;
 
 ```yaml
 ---
-id: templates/apex/40-dml-merge.apex.md
+id: docs/apex/40-dml-merge.apex.md
 scope: dml
 tags: [merge, optimistic-lock, process, items]
 description: "Update process using MERGE with row version check to prevent lost updates."

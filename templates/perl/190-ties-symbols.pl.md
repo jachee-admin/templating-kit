@@ -76,7 +76,7 @@ say_hi();
 
 ```yaml
 ---
-id: templates/perl/190-ties-symbols.pl.md
+id: docs/perl/190-ties-symbols.pl.md
 lang: perl
 platform: posix
 scope: meta

@@ -71,7 +71,7 @@ exit $rc;
 
 ```yaml
 ---
-id: templates/perl/30-logging-diagnostics.pl.md
+id: docs/perl/30-logging-diagnostics.pl.md
 lang: perl
 platform: posix
 scope: diagnostics

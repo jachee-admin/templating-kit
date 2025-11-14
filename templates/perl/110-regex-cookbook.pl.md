@@ -89,7 +89,7 @@ for (@lines) { s/\A\p{Zs}+|\p{Zs}+\z//g }   # trim Unicode spaces
 
 ```yaml
 ---
-id: templates/perl/110-regex-cookbook.pl.md
+id: docs/perl/110-regex-cookbook.pl.md
 lang: perl
 platform: posix
 scope: regex

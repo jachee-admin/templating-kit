@@ -205,7 +205,7 @@ fail_json() {
 
 ```yaml
 ---
-id: templates/bash/130-error-handling-contracts.sh.md
+id: docs/bash/130-error-handling-contracts.sh.md
 lang: bash
 platform: posix
 scope: scripting

@@ -74,7 +74,7 @@ say $d->as_hash->{id};                  # D9
 
 ```yaml
 ---
-id: templates/perl/146-roles-interfaces.pl.md
+id: docs/perl/146-roles-interfaces.pl.md
 lang: perl
 platform: posix
 scope: oo-roles

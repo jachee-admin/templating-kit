@@ -167,7 +167,7 @@ inplace_edit "sshd_config" 's/^#?PasswordAuthentication .*/PasswordAuthenticatio
 
 ```yaml
 ---
-id: templates/bash/50-text-processing-sed-awk.sh.md
+id: docs/bash/50-text-processing-sed-awk.sh.md
 lang: bash
 platform: posix
 scope: scripting

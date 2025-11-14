@@ -230,7 +230,7 @@ done
 
 ```yaml
 ---
-id: templates/bash/60-arrays-assoc-iteration.sh.md
+id: docs/bash/60-arrays-assoc-iteration.sh.md
 lang: bash
 platform: posix
 scope: scripting

@@ -187,7 +187,7 @@ ssh-keyscan -H app01.corp >> ~/.ssh/known_hosts
 
 ```yaml
 ---
-id: templates/bash/110-ssh-orchestration.sh.md
+id: docs/bash/110-ssh-orchestration.sh.md
 lang: bash
 platform: posix
 scope: orchestration

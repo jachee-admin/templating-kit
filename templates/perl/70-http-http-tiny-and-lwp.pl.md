@@ -121,7 +121,7 @@ sub lwp_post_form ($ua, $url, %form) {
 
 ```yaml
 ---
-id: templates/perl/70-http-http-tiny-and-lwp.pl.md
+id: docs/perl/70-http-http-tiny-and-lwp.pl.md
 lang: perl
 platform: posix
 scope: http

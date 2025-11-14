@@ -162,7 +162,7 @@ for i in $(seq 1 $(ls "$OUTDIR" | wc -l)); do cat "$OUTDIR/$i.json"; done > all.
 
 ```yaml
 ---
-id: templates/bash/90-parallelism-xargs-gnu-parallel.sh.md
+id: docs/bash/90-parallelism-xargs-gnu-parallel.sh.md
 lang: bash
 platform: posix
 scope: scripting

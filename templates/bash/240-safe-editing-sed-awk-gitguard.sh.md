@@ -152,7 +152,7 @@ awk -F= '
 
 ```yaml
 ---
-id: templates/bash/240-safe-editing-sed-awk-gitguard.sh.md
+id: docs/bash/240-safe-editing-sed-awk-gitguard.sh.md
 lang: bash
 platform: posix
 scope: refactor

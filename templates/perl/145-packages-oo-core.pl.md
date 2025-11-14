@@ -99,7 +99,7 @@ say mean(10, 20, 40);         # 23.333...
 
 ```yaml
 ---
-id: templates/perl/145-packages-oo-core.pl.md
+id: docs/perl/145-packages-oo-core.pl.md
 lang: perl
 platform: posix
 scope: oo-core

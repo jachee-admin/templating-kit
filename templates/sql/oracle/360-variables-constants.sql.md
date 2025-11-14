@@ -106,7 +106,7 @@ END;
 
 ```yaml
 ---
-id: templates/sql/oracle/360-variables-constants.sql.md
+id: docs/sql/oracle/360-variables-constants.sql.md
 lang: sql
 platform: oracle
 scope: plsql

@@ -221,7 +221,7 @@ main "$@"
 
 ```yaml
 ---
-id: templates/bash/190-security-hardening.sh.md
+id: docs/bash/190-security-hardening.sh.md
 lang: bash
 platform: posix
 scope: security

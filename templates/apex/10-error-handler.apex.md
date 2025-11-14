@@ -47,7 +47,7 @@ end;
 
 ```yaml
 ---
-id: templates/apex/10-error-handler.apex.md
+id: docs/apex/10-error-handler.apex.md
 scope: errors
 tags: [apex_error, apex_debug, handler]
 description: "Global error handler that logs rich context and shows user-friendly messages."

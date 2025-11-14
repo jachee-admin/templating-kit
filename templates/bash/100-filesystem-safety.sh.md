@@ -174,7 +174,7 @@ find /etc -type f -name '*.conf' -print0 \
 
 ```yaml
 ---
-id: templates/bash/100-filesystem-safety.sh.md
+id: docs/bash/100-filesystem-safety.sh.md
 lang: bash
 platform: posix
 scope: scripting

@@ -54,7 +54,7 @@ end;
 
 ```yaml
 ---
-id: templates/apex/20-authz-scheme.apex.md
+id: docs/apex/20-authz-scheme.apex.md
 scope: auth
 tags: [authorization, roles, jwt, session_state]
 description: "Reusable Authorization Scheme to gate UI/processes by roles or claims."

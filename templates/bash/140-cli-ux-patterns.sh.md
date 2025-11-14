@@ -257,7 +257,7 @@ complete -F _myapp_complete myapp
 
 ```yaml
 ---
-id: templates/bash/140-cli-ux-patterns.sh.md
+id: docs/bash/140-cli-ux-patterns.sh.md
 lang: bash
 platform: posix
 scope: cli
