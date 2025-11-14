@@ -183,7 +183,7 @@ If you’re building a **generic “SELECT viewer”** or a **metadata-driven ET
 
 ```yaml
 ---
-id: templates/sql/oracle/70-dynamic-sql-execute-immediate-binds.sql.md
+id: docs/sql/oracle/70-dynamic-sql-execute-immediate-binds.sql.md
 lang: sql
 platform: oracle
 scope: plsql

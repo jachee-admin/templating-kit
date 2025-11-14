@@ -79,7 +79,7 @@ use v5.36; use strict; use warnings; use utf8; use open qw(:std :encoding(UTF-8)
 
 ```yaml
 ---
-id: templates/perl/20-arg-parsing.pl.md
+id: docs/perl/20-arg-parsing.pl.md
 lang: perl
 platform: posix
 scope: cli

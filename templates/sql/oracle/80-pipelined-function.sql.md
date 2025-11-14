@@ -172,7 +172,7 @@ Notice how you can filter to the first 100 lines and the function will stop prod
 
 ```yaml
 ---
-id: templates/sql/oracle/80-pipelined-function.sql.md
+id: docs/sql/oracle/80-pipelined-function.sql.md
 lang: sql
 platform: oracle
 scope: plsql

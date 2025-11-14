@@ -88,7 +88,7 @@ say iso_utc_now();
 
 ```yaml
 ---
-id: templates/perl/100-datetime-timing.pl.md
+id: docs/perl/100-datetime-timing.pl.md
 lang: perl
 platform: posix
 scope: time

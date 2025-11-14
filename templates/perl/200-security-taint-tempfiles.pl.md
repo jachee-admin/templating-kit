@@ -70,7 +70,7 @@ say "working in $tmpd";
 
 ```yaml
 ---
-id: templates/perl/200-security-taint-tempfiles.pl.md
+id: docs/perl/200-security-taint-tempfiles.pl.md
 lang: perl
 platform: posix
 scope: security

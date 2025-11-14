@@ -75,7 +75,7 @@ Square->new(side=>2)->draw;
 
 ```yaml
 ---
-id: templates/perl/150-moo-quickstart.pl.md
+id: docs/perl/150-moo-quickstart.pl.md
 lang: perl
 platform: posix
 scope: oo

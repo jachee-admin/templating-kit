@@ -50,7 +50,7 @@ from t_files
 
 ```yaml
 ---
-id: templates/apex/60-mail-files.apex.md
+id: docs/apex/60-mail-files.apex.md
 scope: messaging
 tags: [apex_mail, email, blob, download]
 description: "HTML email sending and secure BLOB download URLs."

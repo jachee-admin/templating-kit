@@ -92,7 +92,7 @@ FORALL i IN INDICES OF valid_idx BETWEEN 100 AND 999
 **Bottom line:** `INDICES OF` iterates over the **existing keys of a PL/SQL collection** so you can bulk-DML sparse sets cleanly. It doesn’t care about database indexes; it speaks “collection subscripts,” not “B-trees.”
 ```yaml
 ---
-id: templates/sql/oracle/380-forall-indicies-of-values-of.sql.md
+id: docs/sql/oracle/380-forall-indicies-of-values-of.sql.md
 lang: sql
 platform: oracle
 scope: plsql

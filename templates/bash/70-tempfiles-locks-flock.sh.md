@@ -191,7 +191,7 @@ with_lock "/var/lock/reindex.lock" reindex_search
 
 ```yaml
 ---
-id: templates/bash/70-tempfiles-locks-flock.sh.md
+id: docs/bash/70-tempfiles-locks-flock.sh.md
 lang: bash
 platform: posix
 scope: scripting

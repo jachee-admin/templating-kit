@@ -1,5 +1,15 @@
-###### Oracle PL/SQL
-### Sequence / Trigger
+---
+id: sql/oracle/seq-trigger-autoinc
+lang: sql
+platform: oracle
+scope: triggers
+since: "v0.1"
+tested_on: "Oracle 19c"
+tags: [sequence, trigger, autoincrement]
+description: "Assign nextval only when PK is NULL"
+---
+
+### Oracle: Sequence, Trigger
 ```sql
 -- Sequence
 CREATE SEQUENCE acct_seq START WITH 1 INCREMENT BY 1 NOCACHE NOCYCLE;
@@ -13,17 +23,4 @@ BEGIN
   :NEW.id := acct_seq.NEXTVAL;
 END;
 /
-```
-
-```yaml
----
-id: templates/sql/oracle/10-seq-trigger-autoinc.sql.md
-lang: sql
-platform: oracle
-scope: triggers
-since: "v0.1"
-tested_on: "Oracle 19c"
-tags: [sequence, trigger, autoincrement]
-description: "Assign nextval only when PK is NULL"
----
 ```

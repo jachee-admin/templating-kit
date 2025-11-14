@@ -194,7 +194,7 @@ exit "$fail"
 
 ```yaml
 ---
-id: templates/bash/250-content-audits.sh.md
+id: docs/bash/250-content-audits.sh.md
 lang: bash
 platform: posix
 scope: audit

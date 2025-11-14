@@ -363,7 +363,7 @@ BEGIN IF p_val IS NULL THEN RAISE_APPLICATION_ERROR(-20500, p_name||' is require
 
 ```sql
 DECLARE
-  e_deadlock EXCEPTION; 
+  e_deadlock EXCEPTION;
   PRAGMA EXCEPTION_INIT(e_deadlock, -60);
 BEGIN
   NULL; -- risky section
@@ -389,7 +389,7 @@ END;
 
 ```yaml
 ---
-id: templates/sql/oracle/220-exception-handling.sql.md
+id: docs/sql/oracle/220-exception-handling.sql.md
 lang: sql
 platform: oracle
 scope: plsql

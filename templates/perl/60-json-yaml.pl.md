@@ -97,7 +97,7 @@ sub print_json_pretty ($data) {
 
 ```yaml
 ---
-id: templates/perl/60-json-yaml.pl.md
+id: docs/perl/60-json-yaml.pl.md
 lang: perl
 platform: posix
 scope: io

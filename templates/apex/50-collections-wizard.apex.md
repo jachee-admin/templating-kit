@@ -54,7 +54,7 @@ end;
 
 ```yaml
 ---
-id: templates/apex/50-collections-wizard.apex.md
+id: docs/apex/50-collections-wizard.apex.md
 scope: staging
 tags: [collections, wizard, bulk, staging]
 description: "Stage multi-page input with APEX collections; preview and commit safely."

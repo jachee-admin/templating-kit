@@ -16,7 +16,7 @@ WHEN NOT MATCHED THEN
 
 ```yaml
 ---
-id: templates/sql/oracle/120-merge-upsert-plsql-locking.sql.md
+id: docs/sql/oracle/120-merge-upsert-plsql-locking.sql.md
 lang: sql
 platform: oracle
 scope: plsql

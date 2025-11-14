@@ -32,15 +32,15 @@ DECLARE
 BEGIN
     -- Put/exists/delete
     v_int(10) := 'ten';
-    IF v_int.EXISTS(10) THEN 
-        v_int.DELETE(10); 
+    IF v_int.EXISTS(10) THEN
+        v_int.DELETE(10);
     END IF;
 
     v_id_by_email('ada@nc.gov') := 1001;
     v_id_by_email('grace@nc.gov') := 1002;
 
     -- Sparse traversal with FIRST/NEXT
-    DECLARE 
+    DECLARE
         c VARCHAR2(320);
     BEGIN
         c := v_id_by_email.FIRST;
@@ -293,7 +293,7 @@ END;
 
 ```sql
 DECLARE
-    TYPE t_ord_id IS 
+    TYPE t_ord_id IS
         TABLE OF orders.order_id%TYPE;
     v_new_ids t_ord_id;
 BEGIN
@@ -305,7 +305,7 @@ BEGIN
 
     DBMS_OUTPUT.PUT_LINE('#inserted='||v_new_ids.COUNT);
 END;
-/ 
+/
 ```
 
 ---
@@ -423,7 +423,7 @@ BEGIN
                   FROM dual
             ) s ON ( d.account_id = s.account_id
                  AND d.month_key = trunc(sysdate,'MM') )
-            WHEN MATCHED THEN 
+            WHEN MATCHED THEN
                 UPDATE SET d.cents = s.cents
             WHEN NOT MATCHED THEN
                 INSERT (
@@ -446,7 +446,7 @@ END;
 
 ```yaml
 ---
-id: templates/sql/oracle/200-collections.sql.md
+id: docs/sql/oracle/200-collections.sql.md
 lang: sql
 platform: oracle
 scope: plsql

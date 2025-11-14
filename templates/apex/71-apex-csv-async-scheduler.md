@@ -335,7 +335,7 @@ order by row_num
 
 ```yaml
 ---
-id: templates/apex/71-apex-csv-async-scheduler.md
+id: docs/apex/71-apex-csv-async-scheduler.md
 lang: plsql
 platform: apex
 scope: data-load-async

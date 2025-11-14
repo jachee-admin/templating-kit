@@ -168,7 +168,7 @@ fi
 
 ```yaml
 ---
-id: templates/bash/220-maintenance-jobs.sh.md
+id: docs/bash/220-maintenance-jobs.sh.md
 lang: bash
 platform: posix
 scope: maintenance

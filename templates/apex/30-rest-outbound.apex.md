@@ -48,7 +48,7 @@ end;
 
 ```yaml
 ---
-id: templates/apex/30-rest-outbound.apex.md
+id: docs/apex/30-rest-outbound.apex.md
 scope: integration
 tags: [apex_web_service, apex_json, rest, credentials]
 description: "Outbound REST GET/POST with headers and JSON parsing into a table."

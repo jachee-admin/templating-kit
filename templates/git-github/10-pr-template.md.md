@@ -5,7 +5,9 @@ tags: [github, pr]
 description: "Pull request template"
 ---
 
+### Github: PR Template
 Copy this to `.github/pull_request_template.md` in consuming repos.
+
 
 ```md
 ## What & Why

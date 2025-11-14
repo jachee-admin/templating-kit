@@ -262,7 +262,7 @@ fi
 
 ```yaml
 ---
-id: templates/bash/80-json-apis-curl-jq.sh.md
+id: docs/bash/80-json-apis-curl-jq.sh.md
 lang: bash
 platform: posix
 scope: scripting

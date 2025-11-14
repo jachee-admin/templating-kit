@@ -68,7 +68,7 @@ say join(',', @squares);
 
 ```yaml
 ---
-id: templates/perl/140-concurrency.pl.md
+id: docs/perl/140-concurrency.pl.md
 lang: perl
 platform: posix
 scope: concurrency

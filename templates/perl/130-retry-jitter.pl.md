@@ -73,7 +73,7 @@ sub retry_until (&$) {
 
 ```yaml
 ---
-id: templates/perl/130-retry-jitter.pl.md
+id: docs/perl/130-retry-jitter.pl.md
 lang: perl
 platform: posix
 scope: resilience

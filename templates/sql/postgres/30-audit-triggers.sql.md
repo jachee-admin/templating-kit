@@ -9,7 +9,7 @@ tags: [audit, trigger]
 description: "Touch updated_at/updated_by on DML"
 ---
 
-### Primary snippet
+### Postgres: Audit Trigger
 ```sql
 CREATE SCHEMA IF NOT EXISTS util;
 

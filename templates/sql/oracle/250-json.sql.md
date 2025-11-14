@@ -320,7 +320,7 @@ WHEN NOT MATCHED THEN
 
 ```yaml
 ---
-id: templates/sql/oracle/250-json.sql.md
+id: docs/sql/oracle/250-json.sql.md
 lang: sql
 platform: oracle
 scope: plsql

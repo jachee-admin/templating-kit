@@ -81,7 +81,7 @@ open my $o, '>:raw', 'out.bin' or die $!; print {$o} $out, $blob; close $o;
 
 ```yaml
 ---
-id: templates/perl/180-binary-pack-unpack.pl.md
+id: docs/perl/180-binary-pack-unpack.pl.md
 lang: perl
 platform: posix
 scope: binary

@@ -380,7 +380,7 @@ END;
 
 ```yaml
 ---
-id: templates/sql/oracle/270-loops-and-cases.sql.md
+id: docs/sql/oracle/270-loops-and-cases.sql.md
 lang: sql
 platform: oracle
 scope: plsql

@@ -112,7 +112,7 @@ sub ensure_connected ($dbh_ref, $dsn,$user,$pass) {
 
 ```yaml
 ---
-id: templates/perl/90-dbi-postgres-reconnect.pl.md
+id: docs/perl/90-dbi-postgres-reconnect.pl.md
 lang: perl
 platform: posix
 scope: db

@@ -203,7 +203,7 @@ exec 9<&-  # close
 
 ```yaml
 ---
-id: templates/bash/170-config-management.sh.md
+id: docs/bash/170-config-management.sh.md
 lang: bash
 platform: posix
 scope: config

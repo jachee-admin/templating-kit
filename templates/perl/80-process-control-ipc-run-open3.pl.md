@@ -89,7 +89,7 @@ sub run_in_env ($cwd, $env_ref, @cmd) {
 
 ```yaml
 ---
-id: templates/perl/80-process-control-ipc-run-open3.pl.md
+id: docs/perl/80-process-control-ipc-run-open3.pl.md
 lang: perl
 platform: posix
 scope: processes

@@ -216,7 +216,7 @@ get_csv_field 3 "a,b,c d,e"   # → c d
 
 ```yaml
 ---
-id: templates/bash/30-variables-quoting-expansions.sh.md
+id: docs/bash/30-variables-quoting-expansions.sh.md
 lang: bash
 platform: posix
 scope: scripting

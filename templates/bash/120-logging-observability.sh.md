@@ -211,7 +211,7 @@ rotate_file() {
 
 ```yaml
 ---
-id: templates/bash/120-logging-observability.sh.md
+id: docs/bash/120-logging-observability.sh.md
 lang: bash
 platform: posix
 scope: observability

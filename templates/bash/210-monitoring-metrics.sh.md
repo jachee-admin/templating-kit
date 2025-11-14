@@ -187,7 +187,7 @@ mv -f -- /var/lib/node_exporter/textfile_collector/myapp_db.prom.$$ /var/lib/nod
 
 ```yaml
 ---
-id: templates/bash/210-monitoring-metrics.sh.md
+id: docs/bash/210-monitoring-metrics.sh.md
 lang: bash
 platform: posix
 scope: monitoring

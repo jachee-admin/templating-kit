@@ -7,7 +7,7 @@ tags: [ansible, postgres]
 description: "Create a Postgres DB and role"
 ---
 
-### Playbook
+### Ansible: Postgres DB User
 ```yaml
 - name: Create Postgres DB and role
   hosts: db
